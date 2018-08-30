@@ -1,0 +1,1464 @@
+.terminalheadline {
+    background-color: #336699;
+    height: 90px;
+    max-width: 100%;
+}
+
+.errorbutton {
+    width: 300px;
+    height: 83px;
+    font-size: 26px;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.body-background-color {
+    background-color: powderblue;
+}
+
+.severstallogo {
+    width: 17%;
+    margin-top: 100px;
+    margin-left: 20px;
+}
+
+.mainpagepositionsdisplay {
+    position: absolute;
+    margin-top: 30px;
+}
+
+.personalnumberinput {
+    position: absolute;
+    max-width: 100%;
+    width: 514px;
+    margin-top: 241px;
+    height: 17%;
+    font-size: 39px;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+}
+
+.mainpagesearchbutton {
+    width: 46%;
+    height: 98px;
+    font-size: 35px;
+    position: absolute;
+    margin-top: 378px;
+    margin-left: -545px;
+    box-shadow: 0 0 0 0.2rem rgba(0, 153, 0, 0.28);
+}
+
+.mainpagenumberstable {
+    margin-top: 25px;
+    margin-left: 625px;
+}
+
+.numberspanel {
+    width: 160px;
+    height: 160px;
+    font-size: 55px;
+    border-radius: 24%;
+    background-color: #336699;
+}
+
+.numberspanelpadding {
+    padding: 5px;
+}
+
+.infomessage {
+    position: absolute;
+    margin-top: 39px;
+    margin-left: -55px;
+}
+
+.zerobutton {
+    position: absolute;
+    margin-top: 587px;
+    margin-left: 798px;
+}
+
+.removebutton {
+    width: 160px;
+    height: 160px;
+    border-radius: 24%;
+    position: absolute;
+    margin-top: 583px;
+    margin-left: 652px;
+    font-size: 34px;
+    border-color: #ec971f;
+    background-color: #ec971f;
+    box-shadow: 0 0 0 0.2rem rgba(236, 151, 31, 0.28);
+    color: white;
+}
+
+.mainpageclearbutton {
+    width: 160px;
+    height: 160px;
+    border-radius: 24%;
+    position: absolute;
+    margin-top: 575px;
+    margin-left: 1000px;
+    font-size: 32px;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.29);
+}
+
+.searchbyfullname {
+    margin-top: 480px;
+    width: 503px;
+    height: 70px;
+    font-size: 33px;
+    margin-left: -17px;
+}
+
+h2
+.confirmidentityyesform {
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 560px;
+}
+
+.confirm-identity-title-text {
+    font-size: 25px;
+}
+
+.confirmidentityyesbutton {
+    position: absolute;
+    margin-top: 36px;
+    margin-left: -7px;
+    width: 293px;
+    height: 95px;
+    font-size: 35px;
+    box-shadow: 0 0 0 0.2rem rgba(0, 153, 0, 0.28);
+}
+
+.confirmidentitynobutton {
+    position: absolute;
+    margin-top: 36px;
+    margin-left: 310px;
+    width: 293px;
+    height: 95px;
+    font-size: 36px;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.29);
+
+}
+
+.userphoto {
+    position: absolute;
+    width: 300px;
+    height: 350px;
+    margin-top: -230px;
+    margin-left: -318px;
+}
+
+.userlogo {
+    position: absolute;
+    margin-top: -105px;
+    margin-left: -100px;
+    width: 320px;
+}
+
+.userfullnameposition {
+    position: absolute;
+    margin-top: -38px;
+    margin-left: 355px;
+    width: 350px;
+}
+
+.userpersonalnumberposition {
+    position: absolute;
+    margin-top: -38px;
+    margin-left: 355px;
+}
+
+.usernotfoundform {
+    position: absolute;
+    margin-top: 300px;
+    margin-left: 700px;
+}
+
+.go-to-test-btn {
+    width: 650px;
+    height: 150px;
+    font-size: 36px;
+    color: whitesmoke;
+    background-color: #2d4c63;
+    border: 4px solid whitesmoke;
+}
+
+.usernotfoundbutton {
+    position: absolute;
+    margin-top: 30px;
+    margin-left: -270px;
+    width: 404px;
+    height: 90px;
+    font-size: 32px;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.29);
+}
+
+.go-to-profile-btn {
+    width: 650px;
+    height: 150px;
+    font-size: 36px;
+    color: whitesmoke;
+    background-color: #2d4c63;
+    border: 4px solid whitesmoke;
+}
+
+.user-not-found-text {
+    font-size: 36px;
+    position: absolute;
+    margin-top: -50px;
+    width: 1059px;
+    margin-left: -554px;
+}
+
+.questionformposition {
+    position: absolute;
+    margin-top: 100px;
+}
+
+.question-text-position {
+    position: absolute;
+    margin-bottom: 20px;
+    margin-left: -30px;
+    height: 146px;
+    margin-top: 108px;
+    max-width: 100%;
+    border: 2px solid;
+    border-radius: 10px;
+    background-color: white;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+    text-align: center;
+    padding-top: 11px;
+}
+
+.answerbutton {
+    width: 550px;
+    border-radius: 15px;
+    height: 154px;
+    white-space: normal;
+    background-color: #336699;
+    box-shadow: 0 0 0 0.2rem rgba(0, 126, 255, 0.73);
+}
+
+.answertable {
+    position: absolute;
+    margin-left: -140px;
+}
+
+.question-text-size {
+    font-size: 25px;
+    color: whitesmoke;
+}
+
+.answergoodresultform {
+    position: absolute;
+    margin-top: 230px;
+}
+
+.answergoodresultbutton {
+    width: 400px;
+    height: 90px;
+    font-size: 35px;
+    box-shadow: 0 0 0 0.2rem rgba(0, 153, 0, 0.28);
+    color: whitesmoke;
+}
+
+.answerbadresultbutton {
+    width: 400px;
+    height: 90px;
+    font-size: 30px;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.29);
+}
+
+.badanswerform {
+    position: absolute;
+    margin-top: -35px;
+    margin-left: 290px;
+}
+
+.timeisupform {
+    position: absolute;
+    margin-top: -35px;
+    margin-left: 50px;
+}
+
+.timeisupbutton {
+    width: 400px;
+    height: 90px;
+    font-size: 30px;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.29);
+}
+
+.timeisupcontent {
+    position: absolute;
+    margin-top: 280px;
+
+}
+
+.hint {
+    color: #b9b9b9;
+    text-decoration: underline;
+}
+
+.personalprofileleftmenu {
+    position: absolute;
+    background-color: white;
+    border: 0px;
+    margin-top: 250px;
+    margin-left: -250px;
+}
+
+.usernotfoundprofile {
+    position: absolute;
+    margin-top: 250px;
+    margin-left: 400px;
+    width: 700px;
+}
+
+.personalstatistictitle {
+    font-size: 32px;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: -20px;
+}
+
+.totalanswers {
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 380px;
+}
+
+.textmessagestatistic {
+    color: #000;
+    margin-left: 670px;
+    font-size: 30px;
+    position: absolute;
+    margin-top: -43px;
+}
+
+.btnlogout {
+    color: #ffffff;
+    background-color: #336699;
+    border-color: #336699;
+    border-radius: 15px;
+    position: absolute;
+    width: 200px;
+    height: 90px;
+    font-size: 26px;
+    margin-left: 60px;
+}
+
+.subjectstatistictable {
+    font-size: 25px;
+    margin-top: 100px;
+    margin-left: -20px;
+}
+
+.subjectstatistictitle {
+    margin-top: -20px;
+    position: absolute;
+}
+
+.authposition {
+    width: 700px;
+    height: 60px;
+    font-size: 25px;
+}
+
+.enterbut {
+    width: 400px;
+    margin-left: 9px;
+    margin-top: 33px;
+}
+
+.navbarlineadminapge {
+    background-color: #336699;
+    border-color: #336699;
+}
+
+.linksstyleadminpage {
+    background-color: #336699;
+    width: 167px;
+    height: 86px;
+    font-size: 20px;
+}
+
+.homepageadminpage {
+    position: absolute;
+    margin-top: 20px;
+    font-size: 20px;
+    margin-left: 113px;
+}
+
+.uploadquestionsform {
+    position: absolute;
+    margin-top: 170px;
+    margin-left: 140px;
+}
+
+.uploadquestioninput {
+    font-size: 17px;
+    width: 600px;
+    margin-top: 45px;
+}
+
+.uploadquestionbutton {
+    position: absolute;
+    margin-top: -12px;
+    width: 400px;
+    height: 70px;
+    font-size: 25px;
+    border: 4px solid #336699;
+    background-color: white;
+    box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, .25);
+}
+
+.uploadquestionmessage {
+    font-size: 30px;
+    position: absolute;
+    margin-top: -58px;
+}
+
+.uploadquestionformatmessage {
+    font-size: 18px;
+    position: absolute;
+    margin-top: -15px;
+}
+
+.spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -156px;
+    margin-top: 33px;
+    text-align: center;
+    z-index: 1234;
+    overflow: auto;
+    width: 250px;
+    height: 250px;
+}
+
+.movetoload {
+    width: 300px;
+    height: 60px;
+    margin-left: -620px;
+    margin-top: 300px;
+    font-size: 20px;
+    padding: 1px;
+    position: absolute;
+    background-color: white;
+    border: 3px solid #336699;
+    box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, .25);
+}
+
+.questiontitlelist {
+    position: absolute;
+    margin-top: -75px;
+    font-size: 30px;
+}
+
+.uploadOK {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 200px;
+    width: 250px;
+    height: 60px;
+    font-size: 28px;
+    padding: 11px;
+}
+
+.questioncontainerscroll {
+    height: 700px;
+    overflow: scroll;
+    border: 2px solid #336699;
+    background-color: white;
+}
+
+.questiontable {
+    font-size: 15px;
+    width: 1489px;
+    background-color: white;
+    text-align: justify;
+}
+
+.questiontablesortbuttons {
+    margin-left: 20px;
+    font-size: 17px;
+}
+
+.questiontableth {
+    text-align: center;
+    cursor: pointer;
+    background-color: #7898b5;
+    color: white;
+    border: 2px solid #336699;
+}
+
+.questionAdditionalAnswer {
+    width: 990px;
+    height: 55px;
+    font-size: 20px;
+    border: 2px solid #7898b5;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+}
+
+.questionaddingform {
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 100px;
+}
+
+.home-icon {
+    width: 80px;
+    height: 80px;
+    margin-left: -963px;
+    margin-top: 7px;
+    color: white;
+    background-color: #336699;
+    border: 0px;
+    content: "\f015";
+    font-size: 40px;
+    font-family: FontAwesome;
+    font-weight: 900;
+}
+
+.addnewinputbutton {
+    width: 300px;
+    height: 50px;
+    border: 3px solid #336699;
+    font-size: 16px;
+    background-color: white;
+    box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, .25);
+}
+
+.addnewquestionbutton {
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.addquestioncancel {
+    position: absolute;
+    margin-left: 690px;
+    margin-top: -50px;
+}
+
+.addquestiontitle {
+    position: absolute;
+    margin-top: 112px;
+    margin-left: 508px;
+}
+
+.movetoaddquestion {
+    position: absolute;
+    margin-top: 367px;
+}
+
+.notice {
+    margin-top: 165px;
+    position: absolute;
+    margin-left: 508px;
+    font-size: 17px;
+}
+
+.addinglog {
+    margin-top: 300px;
+    margin-left: 300px;
+    font-size: 30px;
+}
+
+.addOK {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 377px;
+    width: 250px;
+    height: 60px;
+    font-size: 28px;
+    padding: 11px;
+}
+
+.unicodSortSimbol {
+    font-size: 25px;
+    color: #336699;
+    margin-left: 20px;
+}
+
+.deletequestion {
+    margin-top: 434px;
+}
+
+.allquestionstable {
+    position: absolute;
+    margin-top: 80px;
+    margin-left: -41px;
+}
+
+.editquestion {
+    margin-top: 388px;
+}
+
+.deletecross {
+    color: #b11515;
+    border: 0px;
+    background-color: white;
+    font-size: 23px;
+}
+
+.editicon {
+    color: #FFB47C;
+    border: 0px;
+    background-color: white;
+    font-size: 23px;
+}
+
+.user-info-position {
+    position: absolute;
+    margin-left: 865px;
+    margin-top: -80px;
+}
+
+.successsaveuser {
+    margin-top: 200px;
+    margin-left: 750px;
+    position: absolute;
+    border: 3px solid #336699;
+    border-radius: 15px;
+    width: 500px;
+    height: 250px;
+    padding-left: 24px;
+    padding-top: 15px;
+}
+
+.first-answer-list-size-4 {
+    width: 100%;
+    border-radius: 15px;
+    height: 154px;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.second-answer-list-size-4 {
+    width: 100%;
+    border-radius: 15px;
+    height: 154px;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.third-answer-list-size-4 {
+    width: 100%;
+    border-radius: 15px;
+    height: 154px;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.fourth-answer-list-size-4 {
+    width: 100%;
+    border-radius: 15px;
+    height: 154px;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.answer-text {
+    font-size: 18px;
+}
+
+.first-answer-list-size-5 {
+    width: 100%;
+    border-radius: 15px;
+    height: 180px;
+    white-space: normal;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.second-answer-list-size-5 {
+    width: 100%;
+    border-radius: 15px;
+    height: 180px;
+    white-space: normal;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.third-answer-list-size-5 {
+    width: 100%;
+    border-radius: 15px;
+    height: 180px;
+    white-space: normal;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+
+}
+
+.fourth-answer-list-size-5 {
+    width: 100%;
+    border-radius: 15px;
+    height: 180px;
+    white-space: normal;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+
+}
+
+.fifth-answer-list-size-5 {
+    width: 100%;
+    border-radius: 15px;
+    height: 180px;
+    white-space: normal;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.answer-text-list-size-5 {
+    font-size: 15px;
+}
+
+.first-answer-list-size-6 {
+    width: 100%;
+    border-radius: 15px;
+    height: 180px;
+    white-space: normal;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.second-answer-list-size-6 {
+    width: 100%;
+    border-radius: 15px;
+    height: 180px;
+    white-space: normal;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.third-answer-list-size-6 {
+    width: 100%;
+    border-radius: 15px;
+    height: 180px;
+    white-space: normal;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.fourth-answer-list-size-6 {
+    width: 100%;
+    border-radius: 15px;
+    height: 180px;
+    white-space: normal;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.fifth-answer-list-size-6 {
+    width: 100%;
+    border-radius: 15px;
+    height: 180px;
+    white-space: normal;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.sixth-answer-list-size-6 {
+    width: 100%;
+    border-radius: 15px;
+    height: 180px;
+    white-space: normal;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.answer-text-list-size-6 {
+    font-size: 15px;
+}
+
+.first-answer-list-size-3 {
+    width: 100%;
+    border-radius: 15px;
+    height: 250px;
+    white-space: normal;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.second-answer-list-size-3 {
+    width: 100%;
+    border-radius: 15px;
+    height: 250px;
+    white-space: normal;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.third-answer-list-size-3 {
+    width: 100%;
+    border-radius: 15px;
+    height: 250px;
+    white-space: normal;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.answer-text-size-3 {
+    font-size: 20px;
+}
+
+.first-answer-list-size-2 {
+    width: 100%;
+    border-radius: 15px;
+    height: 250px;
+    white-space: normal;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.second-answer-list-size-2 {
+    width: 100%;
+    border-radius: 15px;
+    height: 250px;
+    white-space: normal;
+    color: whitesmoke;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.answer-text-size-2 {
+    font-size: 30px;
+}
+
+.auth-position {
+    position: absolute;
+    margin-left: 650px;
+    margin-top: 100px;
+}
+
+.auth-login-input {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+    font-size: 25px;
+    border-radius: 10px;
+}
+
+.download-icon-container {
+    position: absolute;
+    margin-left: -5px;
+    font-weight: 900;
+    font-family: FontAwesome;
+    color: #336699;
+    font-size: 58px;
+    border: 2px solid #336699;
+    border-radius: 15px;
+    width: 686px;
+    height: 450px;
+    background-color: white;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+    z-index: 1;
+}
+
+.position-download-content {
+    margin-left: 194px;
+    margin-top: 107px;
+}
+
+.auth-password-input {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+    font-size: 25px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.auth-button {
+    border-radius: 9px;
+    background-color: #336699;
+    box-shadow: 0 0 0 0.15rem rgba(0, 126, 255, 0.73);
+    width: 350px;
+    height: 55px;
+    font-size: 20px;
+}
+
+.admin-panel-navbar-buttons-main {
+    position: absolute;
+    margin-left: -900px;
+}
+
+.admin-panel-navbar-buttons-users {
+    position: absolute;
+    margin-left: -733px;
+    margin-top: -6px;
+}
+
+.admin-panel-navbar-buttons-tests {
+    position: absolute;
+    margin-left: -566px;
+    margin-top: -12px;
+}
+
+.admin-panel-navbar-buttons-questions {
+    position: absolute;
+    margin-left: -399px;
+    margin-top: -18px;
+}
+
+.admin-panel-navbar-buttons-statistic {
+    position: absolute;
+    margin-left: -232px;
+    margin-top: -24px;
+}
+
+.admin-panel-navbar-buttons-competence {
+    position: absolute;
+    margin-left: -65px;
+    margin-top: -30px;
+}
+
+.admin-panel-navbar-buttons-roles {
+    position: absolute;
+    margin-left: 102px;
+    margin-top: -36px;
+}
+
+.admin-panel-navbar-buttons-feedback {
+    position: absolute;
+    margin-left: 269px;
+    margin-top: -42px;
+}
+
+.admin-panel-navbar-buttons-change-user {
+    position: absolute;
+    margin-left: 541px;
+    margin-top: -48px;
+}
+
+.all-user-container {
+    position: absolute;
+    margin-top: 68px;
+    margin-left: -22px;
+}
+
+.users-title-container {
+    position: absolute;
+    margin-top: -74px;
+    font-size: 30px;
+}
+
+.users-left-menu-buttons {
+    position: absolute;
+    background-color: white;
+    border: 3px solid #336699;
+    box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, .25);
+}
+
+.add-new-input-button {
+    margin-left: 43px;
+    box-shadow: 0 0 0 0.15rem rgba(0, 153, 0, 0.28);
+}
+
+.cancel-adding-new-question {
+    box-shadow: 0 0 0 0.15rem rgba(220, 53, 69, 0.29);
+}
+
+.add-new-user-button {
+    margin-left: 367px;
+    box-shadow: 0 0 0 0.15rem rgba(0, 153, 0, 0.28);
+}
+
+.cancel-adding-new-user {
+    box-shadow: 0 0 0 0.15rem rgba(220, 53, 69, 0.29);
+}
+
+.save-edit-question-button {
+    margin-left: 43px;
+    box-shadow: 0 0 0 0.15rem rgba(0, 153, 0, 0.28);
+}
+
+.cancel-editing-new-question {
+    box-shadow: 0 0 0 0.15rem rgba(220, 53, 69, 0.29);
+}
+
+.save-edit-user-button {
+    margin-left: 43px;
+    box-shadow: 0 0 0 0.15rem rgba(0, 153, 0, 0.28);
+}
+
+.cancel-editing-user {
+    box-shadow: 0 0 0 0.15rem rgba(220, 53, 69, 0.29);
+}
+
+.subdivision-container {
+    padding: 0px;
+    overflow-y: scroll;
+    height: 100px;
+}
+
+.profession-container {
+    padding: 0px;
+    overflow-y: scroll;
+    height: 100px;
+}
+
+.usertable {
+    font-size: 15px;
+    width: 1439px;
+    background-color: white;
+    text-align: justify;
+}
+
+.userInputField {
+    width: 990px;
+    height: 55px;
+    font-size: 20px;
+    border: 2px solid #7898b5;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+}
+
+.addnewuserbutton {
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.addusercancel {
+    position: absolute;
+    margin-left: 690px;
+    margin-top: -50px;
+}
+
+.usereditingform {
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 100px;
+}
+
+.editusertitle {
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 708px;
+}
+
+.addusertitle {
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 770px;
+}
+
+.usertableth {
+    text-align: center;
+    cursor: pointer;
+    background-color: #7898b5;
+    color: white;
+    border: 2px solid #336699;
+}
+
+.usertabletd {
+    text-align: -webkit-center;
+    border-right: 2px solid darkgray;
+    border-bottom: 1px solid darkgray;
+}
+
+.moveproftosubj {
+    width: 300px;
+    height: 60px;
+    margin-left: -620px;
+    margin-top: 234px;
+    font-size: 17px;
+    padding: 1px;
+    position: absolute;
+    background-color: white;
+    border: 3px solid #336699;
+    box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, .25);
+}
+
+.profcontposition {
+    position: absolute;
+    margin-top: 150px;
+    margin-left: -320px;
+    width: 530px;
+    height: 590px;
+    overflow-y: scroll;
+    background: white;
+}
+
+.reltable {
+    width: 512px;
+    margin-left: -15px;
+}
+
+.atmrelations {
+    position: absolute;
+    margin-top: 150px;
+    height: 590px;
+    width: 530px;
+    overflow-y: scroll;
+    background: white;
+    margin-left: 309px;
+}
+
+.proftable {
+    border: 1px solid;
+    width: 512px;
+    margin-left: -15px;
+    background: white;
+}
+
+.subjcontposition {
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 930px;
+    width: 530px;
+    height: 590px;
+    overflow-y: scroll;
+    background: white;
+}
+
+.subjtable {
+    border: 1px solid;
+    width: 512px;
+    margin-left: -15px;
+    background: white;
+}
+
+.relbut {
+    width: 700px;
+    height: 80px;
+    font-size: 20px;
+    position: absolute;
+    margin-top: 766px;
+    margin-left: 233px;
+}
+
+.prof-and-subj-tables-th {
+    text-align: center;
+    cursor: pointer;
+    background-color: #7898b5;
+    color: white;
+    border: 2px solid #336699;
+}
+
+.reltext {
+    position: absolute;
+    margin-top: 60px;
+    font-size: 30px;
+    margin-left: 111px;
+}
+
+.searchRelInput {
+    margin-left: 250px;
+    width: 48%;
+    margin-top: 3px;
+}
+
+.inner-addon-search {
+    position: relative;
+    padding-bottom: 3px;
+}
+
+.inner-addon-search .search-icon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+.right-addon-search .search-icon {
+    right: 0px;
+}
+
+.right-addon-search input {
+    padding-right: 30px;
+}
+
+.button-choose-all {
+    position: absolute;
+    margin-top: -30px;
+    height: 30px;
+}
+
+#keyboard {
+    background: #2d4c63;
+    height: 332px;
+    position: fixed;
+    left: 60%;
+    transform: translateX(-50%) translateY(100%);
+    transition: all .3s ease-in-out;
+    /*bottom: -335px;*/
+    bottom: 0;
+    padding-top: 3px;
+    min-width: 1024px;
+    z-index: 100;
+}
+
+#keyboard.keyboard-visible {
+    transform: translateX(-50%) translateY(0);
+}
+
+.keyboard-row-first {
+    margin-left: 90px;
+}
+
+.keyboard-row-second {
+    margin-left: 125px;
+}
+
+.keyboard-row-third {
+    margin-left: 4px;
+}
+
+.keyboard-row-fourth {
+    margin-left: 4px;
+}
+
+.keyboard-row-fifth {
+    margin-left: 67px;
+}
+
+.symbol {
+    width: 51px;
+    height: 57px;
+    font: 24px Trebuchet MS;
+    margin-left: 8px;
+    margin-top: 7px;
+    background-color: #2d4c63;
+    border: 2px solid whitesmoke;
+    color: whitesmoke;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.special-symbol {
+    height: 57px;
+    font: 24px Trebuchet MS;
+    margin-left: 8px;
+    margin-top: 7px;
+    background-color: #2d4c63;
+    border: 2px solid whitesmoke;
+    color: whitesmoke;
+}
+
+.day-of-birthday-button {
+    width: 400px;
+    height: 90px;
+    font-size: 35px;
+    margin-left: 430px;
+    margin-top: 80px;
+    box-shadow: 0 0 0 0.2rem rgba(0, 153, 0, 0.28);
+}
+
+.day-of-birthday-text {
+    font-size: 36px;
+    position: absolute;
+    margin-top: -50px;
+    width: 1059px;
+    margin-left: -554px;
+}
+
+.day-of-birthday-form {
+    position: absolute;
+    margin-top: 300px;
+    margin-left: 700px;
+}
+
+.complexity-table {
+    width: 800px;
+    height: 200px;
+}
+
+.complexity-table-tr {
+    font-size: 20px;
+    border: 1px solid #336699;
+    background: whitesmoke;
+}
+
+.go-to-complexity-test-btn {
+    width: 230px;
+    height: 60px;
+    font-size: 25px;
+    background-color: #317ac3;
+    padding-top: 1px;
+}
+
+.trow {
+
+}
+
+.main-row {
+    height: 100%;
+    width: 100%;
+    float: left;
+}
+
+.row-space-25 {
+    height: 25%;
+}
+
+.main-page-search-button {
+    width: 450px;
+    height: 100px;
+    font-size: 35px;
+    box-shadow: 0 0 0 0.2rem rgba(0, 153, 0, 0.28);
+}
+
+html, body {
+    height: 90%;
+}
+
+.row-space-5 {
+    height: 5%;
+}
+
+.enter-personal-input-row {
+    height: 10%;
+}
+
+.main-page-personal-number-input {
+    width: 450px;
+    height: 100px;
+    font-size: 35px;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+}
+
+.main-page-number-panel {
+    width: 160px;
+    height: 160px;
+    font-size: 55px;
+    border-radius: 24%;
+    border: 4px solid whitesmoke;
+    background-color: #2d4c63;
+}
+
+.col-space {
+    max-width: 100%;
+    width: 175px;
+    height: 170px;
+}
+
+.main-page-remove-button {
+    width: 160px;
+    height: 160px;
+    border-radius: 24%;
+    font-size: 34px;
+    border-color: #ec971f;
+    background-color: #ec971f;
+    box-shadow: 0 0 0 0.2rem rgba(236, 151, 31, 0.28);
+    color: white;
+}
+
+.main-page-clear-button {
+    width: 160px;
+    height: 160px;
+    border-radius: 24%;
+    font-size: 32px;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.29);
+}
+
+.row-space-15 {
+    height: 15%;
+}
+
+.row-space-10 {
+    height: 10%;
+}
+
+.row-space-30 {
+    height: 30%;
+}
+
+.row-space-3 {
+    height: 3%;
+}
+
+
+.row-space-40 {
+    height: 40%;
+}
+
+.row-space-7 {
+    height: 7%;
+}
+
+.main-page-cap {
+    font-size: 200px;
+    color: white;
+}
+
+.confirm-table {
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+.confirm-accept-button {
+    width: 293px;
+    height: 95px;
+    font-size: 35px;
+    box-shadow: 0 0 0 0.2rem rgba(0, 153, 0, 0.28);
+}
+
+.confirm-cancel-button {
+    width: 293px;
+    height: 95px;
+    font-size: 35px;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.29);
+}
+
+.sad-smile{
+    font-size: 200px;
+    color: whitesmoke;
+}
+.happy-smile{
+    font-size: 200px;
+    color: whitesmoke;
+}
+
+
+.ban-icon{
+    font-size: 300px;
+    color: #f52633;
+}
+
+.gift-icon{
+    font-size: 200px;
+    color: whitesmoke;
+}
+
+.profile-left-buttons-row{
+    height: 100%;
+}
+.profile-left-buttons{
+    width: 100%;
+    height: 80px;
+    background-color: #2d4c63;
+    border: 2px solid whitesmoke;
+}
+

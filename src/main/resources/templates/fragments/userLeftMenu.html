@@ -1,0 +1,106 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <div th:fragment="header-css">
+        <!-- this is header-css -->
+        <link rel="stylesheet" type="text/css"
+              href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+
+        <link rel="stylesheet" th:href="@{/css/main.css}"/>
+        <link rel="stylesheet" th:href="@{/css/terminal.css}"/>
+        <link rel="stylesheet" type="text/css"
+              href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    </div>
+</head>
+<body>
+<div th:fragment="userLeftMenu">
+    <div class="row profile-left-buttons-row">
+        <div class="col-12">
+        <div class="row" style="padding-top: 10px">
+            <form class="col-12" action="#" th:action="@{/}" method="get">
+                <button type="submit" class="btn btn-primary profile-left-buttons">
+                    <span><i style="font-size: 35px;" class="fa fa-home"></i></span>
+                </button>
+            </form>
+        </div>
+        <div class="row" style="padding-top: 5px; padding-bottom: 5px">
+            <form class="col-12" action="#" th:action="@{/profile}" method="get">
+                <input type="hidden" th:value="null" name="findUserInput"/>
+                <button type="submit" class="btn btn-primary profile-left-buttons">
+                    <p th:text="#{ru.page.default.title.profile}"/>
+                </button>
+            </form>
+        </div>
+        <div class="row" style="padding-top: 5px; padding-bottom: 5px">
+            <form class="col-12" action="#" th:action="@{/profile/personalstatistic}" method="get">
+                <input type="hidden" th:value="null" name="findUserInput"/>
+                <button type="submit" class="btn btn-primary profile-left-buttons" disabled="disabled">
+                    <p th:text="#{page.default.title.statistic}"/>
+                </button>
+            </form>
+        </div>
+        <div class="row" style="padding-bottom: 5px">
+            <form class="col-12" action="#" th:action="@{/profile/surveys}" method="get">
+                <button type="submit" class="btn btn-primary profile-left-buttons">
+                    <span th:text="#{profile.navbar.surveys}"/>
+                    <th:block th:if="${activeSurveysNumber} > 0">
+                        <span class="badge badge-pill badge-danger" th:text="${activeSurveysNumber}"></span>
+                    </th:block>
+                </button>
+            </form>
+        </div>
+            <div class="row" style="padding-bottom: 5px">
+                <form class="col-12" action="#" th:action="@{/}" method="get">
+                    <button type="submit" class="btn btn-primary profile-left-buttons">
+                        <span><p th:text="#{ru.button.default.text.quit}"></p></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:fragment="userLeftMenuSurvey">
+    <div class="row profile-left-buttons-row">
+        <div class="col-12">
+        <div class="row" style="padding-top: 10px">
+            <form class="col-12" action="#" th:action="@{/}" method="get">
+                <button type="submit" class="btn btn-primary profile-left-buttons">
+                    <span><i style="font-size: 35px;" class="fa fa-home"></i></span>
+                </button>
+            </form>
+        </div>
+        <div class="row" style="padding-top: 5px; padding-bottom: 5px">
+            <form class="col-12" action="#" th:action="@{/profile}" method="get">
+                <input type="hidden" th:value="null" name="findUserInput"/>
+                <button type="submit" class="btn btn-primary profile-left-buttons">
+                    <p th:text="#{ru.page.default.title.profile}"/>
+                </button>
+            </form>
+        </div>
+        <div class="row" style="padding-top: 5px; padding-bottom: 5px">
+            <form class="col-12" action="#" th:action="@{/profile/personalstatistic}" method="get">
+                <input type="hidden" th:value="null" name="findUserInput"/>
+                <button type="submit" class="btn btn-primary profile-left-buttons" disabled="disabled">
+                    <p th:text="#{page.default.title.statistic}"/>
+                </button>
+            </form>
+        </div>
+        <div class="row" style="padding-bottom: 5px">
+            <form class="col-12" action="#" th:action="@{/profile/surveys}" method="get">
+                <button type="submit" class="btn btn-primary profile-left-buttons">
+                    <span th:text="#{profile.navbar.surveys}"/>
+                </button>
+            </form>
+        </div>
+            <div class="row" style="padding-bottom: 5px">
+                <form class="col-12" action="#" th:action="@{/}" method="get">
+                    <button type="submit" class="btn btn-primary profile-left-buttons">
+                        <span><p th:text="#{ru.button.default.text.quit}"></p></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

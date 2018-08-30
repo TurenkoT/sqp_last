@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+<div th:fragment="surveysLeftMenu">
+    <div class="row" style="padding-bottom: 10px;">
+        <form class="col-md-12" action="#" th:action="@{/adminPanel/surveys/new}" method="get">
+            <button type="submit" class="btn section-buttons"
+                    th:text="#{admin.panel.surveys.button.add}">
+                Add new survey
+            </button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

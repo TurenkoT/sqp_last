@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/adminHeader :: adminUsersHeadFragment" th:with="title=#{page.default.title.uploadusers}">
+</head>
+<script type="text/javascript" th:src="@{/js/uploadUsers.js}"></script>
+<body>
+<div class="custom-container">
+    <div class="row main-row">
+        <div class="col-md-2 left-menu-col">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/adminPanelLeftMenu :: adminPanelLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row space-row">
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+                    <h3 th:text="#{ru.page.default.text.uploadUsersInstruction}">UploadInstruction</h3>
+                    <h5 th:text="#{ru.page.default.text.uploadformat}">Upload format</h5>
+                </div>
+            </div>
+            <div class="row space-row-5"></div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+                    <form method="POST" action="#" th:action="@{/adminPanel/users/uploadUsers/upload}"
+                          enctype="multipart/form-data">
+                        <input type="file" name="file"/><br/><br/>
+                        <button id="button-upload" type="submit"
+                                class="btn btn-success users-upload-button"><p
+                                th:text="#{page.default.button.uploadusers}"/></button>
+                    </form>
+                    <div id="spinner" style="display: none" class="container">
+                        <i style="margin-left: 42px;font-size: 100px;" class="fa fa-spinner fa-pulse"></i>
+                        <p th:text="#{ru.page.default.text.download}">Download</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

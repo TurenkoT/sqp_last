@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{ru.page.default.title.personalstatistic}">Personal statistic</title>
+    <div th:replace="fragments/userHeader :: header-css"/>
+    <div th:replace="fragments/userHeader :: header"/>
+</head>
+<body  class="body-background-color" onload="drawChart()">
+<div class="container terminalheadline">
+    <img th:src="@{/images/1200px-Severstal_logo.svg.png}" class="severstallogo"/>
+</div>
+<script type="text/javascript" th:src="@{/js/barChart.js}"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    function drawChart() {
+        var str = $('#jsondata').val();
+        console.log(str);
+        var valueArr = [], keyArr = [];
+        var arrData = JSON.parse(str, function (key, value) {
+            keyArr.push(key);
+            valueArr.push(value);
+        });
+        var chart = makeBarChart(valueArr, 500, 204);
+        var container = document.getElementById("chartContainer");
+        container.appendChild(chart);
+    }
+
+    /*]]>*/
+</script>
+<div class="container">
+    <div th:replace="fragments/userLeftMenu :: left"/>
+    <div class="container personalstatistictitle" align="center">
+        <h1 th:text="#{ru.page.default.title.personalstatistic}">Personal statistic</h1>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+
+<div class="container totalanswers">
+
+    <th:block>
+        <th:block th:if="${!hasStatistics}">
+            <div>
+                <h3 style="margin-left: 100px" th:text="#{ru.page.text.nostatistic}">statistic is not </h3>
+            </div>
+        </th:block>
+        <th:block th:if="${hasStatistics}">
+            <div>
+                <div>
+                    <h2 th:text="#{ru.page.text.totalnumberquestions} + ' ' + ${countOfQuestions}">total answers</h2>
+                </div>
+                <div>
+                    <th:block>
+                        <div th:switch="${rightPercentLevel}">
+                            <div th:case="high">
+                                <div>
+                                    <h1 class="textmessagestatistic" th:text="#{ru.page.text.statisticpercent}">
+                                        statistic
+                                        percent</h1>
+                                </div>
+                                <div class="statisticdiagramover75">
+                                    <p th:text="${rightPercent}"></p><span>%</span>
+                                </div>
+                            </div>
+                            <div th:case="middle">
+                                <div>
+                                    <h1 class="textmessagestatistic" th:text="#{ru.page.text.statisticpercent}">
+                                        statistic
+                                        percent</h1>
+                                </div>
+                                <div class="statisticdiagram5075">
+                                    <p th:text="${rightPercent}"></p><span>%</span>
+                                </div>
+                            </div>
+                            <div th:case="low">
+                                <div>
+                                    <h1 class="textmessagestatistic" th:text="#{ru.page.text.statisticpercent}">
+                                        statistic
+                                        percent</h1>
+                                </div>
+                                <div class="statisticdiagramlower50">
+                                    <p th:text="${rightPercent}"></p><span>%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </th:block>
+                </div>
+                <div class="container">
+                    <h2 th:text="#{ru.page.default.text.subjectsstatistic}" class="subjectstatistictitle">subject
+                        statistic</h2>
+                    <table class="subjectstatistictable">
+                        <tr th:each="entry : ${rightPercentPerSubjectMap}" style="padding: 10px">
+                            <td th:text="${entry.key}" style="padding: 25px 25px 0px 25px"></td>
+                            <td th:text="${entry.value}" style="padding: 25px 25px 0px 25px"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <input id="jsondata" type="hidden" th:value="${rightPercentPerSubjectJson}"/>
+                </div>
+                <div style="margin-top: 50px;" class="container" id="chartContainer">
+
+                </div>
+            </div>
+        </th:block>
+    </th:block>
+</div>
+</body>
+</html>

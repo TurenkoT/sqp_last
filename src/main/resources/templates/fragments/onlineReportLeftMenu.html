@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+<div style="height: 600px;" th:fragment="onlineReportLeftMenu">
+    <div class="row middle-row-container">
+        <div class="row left-menu-top-button-rows">
+            <form action="#" th:action="@{/}" method="get">
+                <button type="submit" class="btn btn-primary left-menu-buttons">
+                    <span><i style="font-size: 35px;" class="fa fa-home"></i></span>
+                </button>
+            </form>
+        </div>
+        <div class="row left-menu-middle-buttons-rows">
+            <form action="#" th:action="@{/onlineReports}" method="get">
+                <button type="submit" class="btn btn-primary left-menu-buttons">
+                    <span th:text="#{onlineReports.navbar.button.text}"/>
+                </button>
+            </form>
+        </div>
+        <div class="row left-menu-low-button-rows">
+            <form action="#" th:action="@{/logout}" method="get">
+                <button type="submit" class="btn btn-primary left-menu-buttons">
+                    <span th:text="#{ru.button.default.text.quit}"/>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

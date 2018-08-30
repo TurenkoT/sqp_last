@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/adminHeader :: surveysHeadFragment" th:with="title=#{admin.panel.navbar.surveys}">
+</head>
+<script type="text/javascript" th:src="@{/js/launchSurvey.js}"></script>
+<body>
+<div class="custom-container">
+    <input type="hidden" id="survey-id" th:value="${survey.id}"/>
+    <div class="row main-row">
+        <div class="col-md-2 left-menu-col">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/adminPanelLeftMenu :: adminPanelLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row space-row-5"></div>
+            <div class="row top-main-row-container">
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+                    <h3 class="admin-panel-table-caption" th:text="#{admin.panel.surveys.launch.form.caption}"/>
+                </div>
+            </div>
+            <!-- Organisations -->
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-3">
+                    <h4 class="text-left" th:text="#{admin.panel.surveys.launch.form.organisation.label}"/>
+                    <div class="well" style="height: 300px;overflow: auto; padding-top: 10px">
+                        <ul class="list-group checked-list-box">
+                            <th:block th:each="organisation : ${organisations}">
+                                <li class="list-group-item">
+                                    <input type="checkbox" class="js-organisation-checkbox"
+                                           th:attr="data-organisation-id=${organisation.id}"/>
+                                    <label th:text="${organisation.name}"/>
+                                </li>
+                            </th:block>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Subdivisions -->
+                <div class="col-4">
+                    <h4 class="text-left" th:text="#{admin.panel.surveys.launch.form.subdivision.label}"/>
+                    <div class="well" style="height: 300px;overflow: auto; padding-top: 10px">
+                        <ul class="list-group checked-list-box">
+                            <th:block th:each="entry : ${subdivisionsMap}">
+                                <div th:attr="data-organisation-id=${entry.key.key}" class="js-subdivisions-box">
+                                    <li class="list-group-item organisation-line-color" th:text="${entry.key.value}"/>
+                                    <th:block th:each="subdivision : ${entry.value}">
+                                        <li class="list-group-item">
+                                            <input type="checkbox" disabled="true" class="js-subdivision-checkbox"
+                                                   th:value="${subdivision.id}"/>
+                                            <label th:text="${subdivision.name}" class="checkbox-label-disabled"/>
+                                        </li>
+                                    </th:block>
+                                </div>
+                            </th:block>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Professions -->
+                <div class="col-4">
+                    <h4 class="text-left" th:text="#{admin.panel.surveys.launch.form.profession.label}"/>
+                    <div class="well" style="height: 300px;overflow: auto; padding-top: 10px">
+                        <ul class="list-group checked-list-box">
+                            <th:block th:each="profession : ${professions}">
+                                <li class="list-group-item">
+                                    <input type="checkbox" class="js-profession-checkbox"
+                                           th:value="${profession.id}"/>
+                                    <label th:text="${profession.name}"/>
+                                </li>
+                            </th:block>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-1"></div>
+                <div class="col-11">
+                    <button type="input" class="btn btn-success btn-lg js-save-btn"
+                            th:text="#{admin.panel.surveys.button.launch}"/>
+                    <a th:href="@{/adminPanel/surveys}"
+                       th:text="#{admin.panel.surveys.button.back}" class="btn btn-danger btn-lg ml-2"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+</html>

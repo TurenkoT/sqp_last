@@ -1,0 +1,10 @@
+target/
+
+.idea/
+
+/sqp.iml
+
+/src/main/resources/application.properties
+/sqp.iml
+
+.DS_Store

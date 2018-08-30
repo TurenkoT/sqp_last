@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{ru.page.default.title.findUser}">FIND USER</title>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body style="background: dimgray">
+<script>
+    function addTextToInput(anElement) {
+        var text = document.getElementById('findUserInput').value;
+        if (text != null)
+            text += "";
+        text += anElement.innerText;
+        document.getElementById('findUserInput').value = text;
+    }
+
+    function addSpaceToInput(anElement) {
+        var text = document.getElementById('findUserInput').value;
+        if (text != null)
+            text += " ";
+        document.getElementById('findUserInput').value = text;
+    }
+
+    function removeElement() {
+        var text = document.getElementById('findUserInput').value;
+        if (text != null)
+            text = text.substr(0, text.length - 1);
+        document.getElementById('findUserInput').value = text;
+    }
+
+    function clearInput() {
+        var text = document.getElementById('findUserInput').value;
+        if (text != null)
+            text = "";
+        document.getElementById('findUserInput').value = text;
+    }
+</script>
+<div th:replace="fragments/header :: header"/>
+
+<div class="container"
+     style=" background:#e9eeff; height: 850px; width: 1660px; margin: 30px auto; padding: 0px; border: 1px solid #000">
+    <div class="container" style="width: 500px; margin-top:30px" align="center">
+        <h2 th:text="#{ru.page.default.text.enterFullName}">Enter full name of worker</h2>
+        <table>
+            <tr>
+                <div class="container findUserPanel" align="center">
+                    <form action="#" th:action="@{/profile}" method="post">
+                        <div class="form-group ">
+                            <input type="findUserInput" class="form-control findUserInput"
+                                   id="findUserInput"
+                                   name="findUserInput" placeholder="Введите ФИО работника"/>
+                            <input type="hidden" th:value="null" name="userId"/>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            <button type="submit" class="btn btn-success numbers personalnumberinput finduserbutton"
+                                    style="align-self: center; margin-top: 10px"><p
+                                    th:text="#{ru.button.default.text.searchbutton}"/>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </tr>
+        </table>
+        <table class="firstlinetable">
+            <tr>
+                <div id="firstLine">
+                    <td>
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Й
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Ц
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">У
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">К
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Е
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Н
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Г
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Ш
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Щ
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">З
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Х
+                            </button>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Ъ
+                            </button>
+                        </div>
+                    </td>
+                </div>
+            </tr>
+        </table>
+        <table class="secondlinetable">
+            <tr>
+                <div id="secondLine">
+                    <td>
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Ф
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Ы
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">В
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">А
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">П
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Р
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">О
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Л
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Д
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Ж
+                            </button>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Э
+                            </button>
+                        </div>
+                    </td>
+                </div>
+            </tr>
+        </table>
+        <table class="thirdlinetable">
+            <tr>
+                <div id="thirdLine">
+                    <td>
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Я
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Ч
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">С
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">М
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">И
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Т
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Ь
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Б
+                            </button>
+                        </div>
+                    </td>
+                    <td style="padding: 5px;">
+                        <div>
+                            <button onclick="addTextToInput(this)" type="button"
+                                    class="btn btn-primary circle numbers">Ю
+                            </button>
+                        </div>
+                    </td>
+                </div>
+            </tr>
+        </table>
+        <table class="finduserservicetable">
+            <tr>
+                <td>
+                    <div>
+                        <button onclick="removeElement(this)" type="button"
+                                class="btn btn-warning finduserservicebutton numbers"
+                                data-toggle="button"><p th:text="#{ru.button.default.text.removebutton}"/>
+                        </button>
+                    </div>
+                </td>
+                <td style="padding: 8px">
+                    <div>
+                        <button onclick="addSpaceToInput(this)" type="button"
+                                class="btn btn-primary finduserspacebutton numbers"
+                                data-toggle="button"><p th:text="#{ru.button.default.text.spacebutton}"/>
+                        </button>
+                    </div>
+                </td>
+                <td style="padding: 8px">
+                    <div>
+                        <button onclick="clearInput(this)" type="button"
+                                class="btn btn-danger finduserservicebutton numbers"
+                                data-toggle="button"><p th:text="#{ru.button.default.text.clearbutton}"/>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

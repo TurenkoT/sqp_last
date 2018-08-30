@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/adminHeader :: adminQuestionsHeadFragment" th:with="title=#{page.default.title.questions}">
+</head>
+<script type="text/javascript" th:src="@{/js/getChooseRows.js}"></script>
+<script type="text/javascript" th:src="@{/js/questionsPageSearch.js}"></script>
+<body>
+<div class="custom-container">
+    <div class="row main-row">
+        <div class="col-md-2 left-menu-col">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/adminPanelLeftMenu :: adminPanelLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row top-main-row-container">
+                <div class="col-md-12" style="padding-left: 25px;">
+                    <h2 style="padding-top: 35px" th:text="#{page.default.title.questions.list}">Question list</h2>
+                </div>
+            </div>
+            <div class="row questions-row">
+                <div class="col-md-2" style="padding-left: 25px; border-right: 2px solid #3e3d3d">
+                    <div class="row space-row"></div>
+                    <div th:replace="fragments/questionsLeftMenu :: questionsLeftMenu"/>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <input class="search-in-questions-table-input js-search-question" type="text"
+                                   th:placeholder="#{page.search.questions}"/>
+                        </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2">
+                            <select class="questions-set-complexity js-select-complexity" name="complexityId">
+                                <option th:each="complexity : ${complexityList}"
+                                        th:value="${complexity.getId()}" th:text="${complexity.getName()}">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-success js-set-complexity-button" th:text="#{page.questions.button.set.complexity}" disabled="disabled"></button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label style="font-weight: 600;" for="subject-filter" th:text="#{page.questions.subject.filter}">Subject</label>
+                            <select style="height: 35px;" id="subject-filter" class="js-select-subjects" name="subjectId">
+                                <option th:each="subject : ${subjectList}" th:value="${subject.getId()}" th:text="${subject.getName()}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 10px; height: 600px; overflow-y: scroll">
+                        <div class="col-md-12">
+                            <table class="table table-sm js-questions-table">
+                                <thead>
+                                <th class="text-center" th:text="#{page.questions.counter}"
+                                    width="60px"></th>
+                                <th class="text-center" th:text="#{page.default.text.type.question}"
+                                    width="100px"></th>
+                                <th class="text-center" th:text="#{page.default.text.name.question}"
+                                    width="200px"></th>
+                                <th class="text-center" th:text="#{page.default.text.complexity.question}"
+                                    width="70px"></th>
+                                <th class="text-center" th:text="#{page.default.text.active.question}"
+                                    width="70px"></th>
+                                <th class="text-center" th:text="#{page.default.title.choose.question}"
+                                    width="70px"></th>
+                                <th class="text-center" th:text="#{page.default.text.edit.question}" width="70px"></th>
+                                <th class="text-center" th:text="#{page.default.text.delete.question}" width="70px"></th>
+                                </thead>
+                                <tbody>
+                                <th:block th:each="question, pointer : ${listquestions}">
+                                    <tr th:attr=" data-value=${question.getSubject().getId()}">
+                                        <td class="text-center" th:text="${pointer.index}"></td>
+                                        <td class="text-center" th:text="${question.getTypeQuestion().getArticle()}"></td>
+                                        <td class="text-left" th:text="${question.text}"></td>
+                                        <td class="text-center" th:text="${question.getComplexity().getName()}"></td>
+                                        <div th:switch="${question.getActiveStatus()}">
+                                            <div th:case="true">
+                                                <td class="text-center" th:text="#{ru.button.default.text.yes}"></td>
+                                            </div>
+                                            <div th:case="false">
+                                                <td class="text-center" th:text="#{ru.button.default.text.no}"></td>
+                                            </div>
+                                        </div>
+                                        <td class="text-center">
+                                            <input type="checkbox" class="js-check-question" th:value="${question.id}"/>
+                                        </td>
+                                        <td class="text-center" >
+                                            <form action="#" th:action="@{/adminPanel/questions/{questionId}(questionId=${question.getId()})}" method="get">
+                                                <button type="submit" class="fa fa-edit editicon"></button>
+                                            </form>
+                                        </td>
+                                        <td class="text-center" >
+                                            <button type="button" class="fa fa-remove deletecross js-delete-one-question"
+                                                    th:value="${question.id}" disabled="disabled"></button>
+                                        </td>
+                                    </tr>
+                                </th:block>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

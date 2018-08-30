@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+<div th:fragment="questionsLeftMenu">
+    <div class="row" style="padding-bottom: 10px;">
+        <form class="col-md-12" action="#" th:action="@{/adminPanel/questions/uploadQuestions}" method="get">
+            <button type="submit" class="btn section-buttons"
+                    th:text="#{page.questions.button.upload}">
+                Relation
+            </button>
+        </form>
+    </div>
+    <div class="row" style="padding-bottom: 10px;">
+        <form class="col-md-12" action="#" th:action="@{/adminPanel/questions/add}" method="get">
+            <button type="submit" class="btn section-buttons"
+                    th:text="#{page.questions.button.add.question}">Upload users
+            </button>
+        </form>
+    </div>
+    <div class="row" style="padding-bottom: 10px;">
+        <div class="col-md-12">
+            <button type="button" onclick="getIds()"
+                    class="btn js-delete-checked-querstions section-buttons" disabled="disabled">
+                <p th:text="#{page.button.delete.question}">delete</p>
+            </button>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

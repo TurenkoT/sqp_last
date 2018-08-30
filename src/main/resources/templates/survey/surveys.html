@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/adminHeader :: surveysHeadFragment" th:with="title=#{admin.panel.navbar.surveys}">
+</head>
+<script type="text/javascript" th:src="@{/js/surveysPage.js}"></script>
+<body>
+<div class="custom-container">
+    <div class="row main-row">
+        <div class="col-md-2 left-menu-col">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/adminPanelLeftMenu :: adminPanelLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row top-main-row-container">
+                <div class="col-md-12" style="padding-left: 25px;">
+                    <h2 style="padding-top: 35px" th:text="#{admin.panel.surveys.table.caption}">Surveys table
+                        title</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2" style="padding-left: 25px; border-right: 2px solid #3e3d3d">
+                    <div class="row space-row"></div>
+                    <div th:replace="fragments/surveysLeftMenu :: surveysLeftMenu"/>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input class="search-in-surveys-table-input js-search-surveys" type="text"
+                                   th:placeholder="#{page.surveys.search}"/>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 10px; height: 600px; overflow-y: scroll">
+                        <div class="col-md-12">
+                            <table class="table table-sm js-survey-table">
+                                <thead>
+                                <tr>
+                                    <th th:text="#{admin.panel.surveys.column.name}"/>
+                                    <th th:text="#{admin.panel.surveys.column.author}"/>
+                                    <th th:text="#{admin.panel.surveys.column.date}" width="170px"/>
+                                    <th th:text="#{admin.panel.surveys.column.last.launch.date}" width="250px"/>
+                                    <th class="text-center" th:text="#{admin.panel.surveys.column.launch}"
+                                        width="100px"/>
+                                    <th class="text-center" th:text="#{admin.panel.surveys.column.change}"
+                                        width="100px"/>
+                                    <th class="text-center" th:text="#{admin.panel.surveys.column.delete}"
+                                        width="100px"/>
+                                    <th class="text-center" width="100px"/>
+                                </tr>
+                                </thead>
+                                <th:block th:each="survey : ${allSurveys}">
+                                    <tr>
+                                        <td th:text="${survey.name}"/>
+                                        <td th:text="${survey.authorName}"/>
+                                        <td th:text="${#dates.format(survey.createdDate, 'yyyy-MM-dd HH:mm')}"/>
+                                        <td th:text="${survey.lastLaunchDate} ? ${#dates.format(survey.lastLaunchDate, 'yyyy-MM-dd HH:mm')} "/>
+                                        <td class="text-center">
+                                            <a th:href="@{/adminPanel/surveys/launch/{surveyId}(surveyId=${survey.id})}"
+                                               class="fa fa-angle-double-right fa-lg"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <a th:href="@{/adminPanel/surveys/edit/{surveyId}(surveyId=${survey.id})}"
+                                               class="fa fa-edit fa-lg editicon"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <a th:href="@{/adminPanel/surveys/delete/{surveyId}(surveyId=${survey.id})}"
+                                               class="fa fa-remove fa-lg deletecross" disabled="disabled"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <a th:href="@{/adminPanel/surveys/{surveyId}/launches(surveyId=${survey.id})}"
+                                               th:text="#{admin.panel.surveys.button.show.results}"
+                                               class="btn btn-success btn-sm"/>
+                                        </td>
+                                    </tr>
+                                </th:block>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

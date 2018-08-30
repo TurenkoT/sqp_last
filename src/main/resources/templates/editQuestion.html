@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/adminHeader :: adminSettingsHeadFragment"
+      th:with="title=#{page.default.text.edit.question}">
+</head>
+<script type="text/javascript" th:src="@{/js/addNewInput.js}"></script>
+<body>
+<div class="custom-container">
+    <div class="row main-row">
+        <div class="col-md-2 left-menu-col">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/adminPanelLeftMenu :: adminPanelLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row top-main-row-container">
+                <div class="col-md-12" style="padding-left: 25px;">
+                    <h2 style="padding-top: 35px" th:text="#{page.default.text.edit.question}">Edit question</h2>
+                </div>
+            </div>
+            <div class="row space-row-5">
+                <div class="col-md-12"></div>
+            </div>
+            <div class="row row-height-5" style="padding-bottom: 5px;padding-top: 5px;">
+                <div class="col-md-1"></div>
+                <div class="col-md-6" style="border-bottom: 1px solid darkgray">
+                    <h5 th:text="#{page.edit.question.title.instruction}"></h5>
+                </div>
+            </div>
+            <form id="js-edit-form" action="#"
+                  th:action="@{'/adminPanel/questions/{questionId}/save'(questionId=${questionDto.getId()})}"
+                  method="post">
+                <div class="row row-height-5" style="padding-bottom: 5px;padding-top: 5px;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <h6 th:text="#{page.question.name}"></h6>
+                        <input type="hidden" name="questId" class="js-complexity-input-id"
+                               th:value="${questionDto.getId()}"/>
+                    </div>
+                    <div class="col-md-3 input-group input-sm auth-inputs">
+                        <input type="text" name="questionText" class="question-edit-inputs js-text-question-input"
+                               th:value="${questionDto.getText()}"/>
+                    </div>
+                </div>
+                <div class="row row-height-5" style="padding-bottom: 5px;padding-top: 5px;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <h6 th:text="#{page.question.subject}"></h6>
+                        <input type="hidden" class="js-hidden-subject" th:value="${questionDto.getSubject().getId()}"/>
+                    </div>
+                    <div class="col-md-3 input-group input-sm auth-inputs">
+                        <select class="question-edit-inputs js-select-subjects" name="subjectId">
+                            <option th:each="subject : ${allSubjects}"
+                                    th:value="${subject.getId()}" th:text="${subject.getName()}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row row-height-5" style="padding-bottom: 5px;padding-top: 5px;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <h6 th:text="#{page.question.complexity}"></h6>
+                        <input type="hidden" class="js-hidden-complexity"
+                               th:value="${questionDto.getComplexity().getId()}"/>
+                    </div>
+                    <div class="col-md-3 input-group input-sm auth-inputs">
+                        <select class="question-edit-inputs js-select-complexity" name="complexityId">
+                            <option th:each="complexity : ${allComplexity}"
+                                    th:value="${complexity.getId()}" th:text="${complexity.getName()}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row row-height-5" style="padding-bottom: 5px;padding-top: 5px;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <h6 th:text="#{page.question.type.question}"></h6>
+                        <input type="hidden" class="js-hidden-type-question"
+                               th:value="${questionDto.getTypeQuestion().getId()}"/>
+                    </div>
+                    <div class="col-md-3 input-group input-sm auth-inputs">
+                        <select class="question-edit-inputs js-select-type-question" name="typeQuestionId">
+                            <option th:each="typeQuestion : ${allTypeQuestion}"
+                                    th:value="${typeQuestion.getId()}" th:text="${typeQuestion.getValue()}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row row-height-5" style="padding-bottom: 5px;padding-top: 5px;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <h6 th:text="#{page.active.status.question}"></h6>
+                    </div>
+                    <div class="col-md-4 input-group input-sm auth-inputs">
+                        <input id="active-status" name="activeStatus"
+                               class="js-active-status"
+                               type="checkbox"
+                               th:checked="${questionDto.getActiveStatus()}"/>
+                    </div>
+                </div>
+
+                <div class="js-additional-answers-wrapper">
+                    <div class="row row-height-5" style="padding-bottom: 5px;padding-top: 5px;">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-6" style="border-bottom: 1px solid darkgray">
+                            <h5 th:text="#{page.notice.null.answers}"/>
+                        </div>
+                    </div>
+                    <th:block th:each="answer : ${questionDto.getAnswers()}">
+                        <div class="row row-height-5 js-answers" style="padding-bottom: 5px;padding-top: 5px;">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-3">
+                                <h6 th:text="#{page.question.answers}"></h6>
+                            </div>
+                            <div class="col-md-3 input-group input-sm auth-inputs">
+                                <input type="text" class="question-edit-inputs js-answer-value"
+                                       th:value="${answer.getValue()}" name="additionalAnswers[]"/>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="answer-checkbox-yes" th:text="#{page.corretness}"></label>
+                                <input id="answer-checkbox-yes" name="correctnessAnswers[]"
+                                       class="js-answer-checkbox"
+                                       type="checkbox"
+                                       th:checked="${answer.isCorrectness()}"/>
+                                <!--<input id="answer-checkbox-hidden-no" type="hidden" name="correctnessAnswers[]"-->
+                                <!--th:value="${answer.isCorrectness()}"/>-->
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="js-remove-one-answer fa fa-remove deletecross"></button>
+                            </div>
+                        </div>
+                    </th:block>
+                </div>
+                <div class="row space-row-5">
+                    <div class="col-md-12"></div>
+                </div>
+                <div class="row row-height-5" style="padding-bottom: 5px;padding-top: 5px;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-success question-edit-buttons js-question-edit"><p
+                                th:text="#{admin.panel.button.save}"></p></button>
+                    </div>
+                </div>
+                <div class="row row-height-5" style="padding-bottom: 5px;padding-top: 5px;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-info question-edit-buttons js-add-one-more-answer"
+                                th:text="#{ru.default.button.addOneMoreAnswer}">
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div class="row row-height-5" style="padding-bottom: 5px;padding-top: 5px;">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <form action="#" th:action="@{/adminPanel/questions}" method="get">
+                        <button type="submit" class="btn btn-danger question-edit-buttons"><p
+                                th:text="#{ru.button.default.text.cancel}"></p>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

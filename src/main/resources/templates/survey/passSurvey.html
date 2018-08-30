@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/userHeader :: correctHeadFragment" th:with="title=#{profile.title.surveys}"/>
+<script type="text/javascript" th:src="@{/js/passSurvey.js}"></script>
+<body style="background-color: #2d4c63">
+<div class="row main-row">
+    <div class="col-3" style="padding-left: 25px; border-right: 3px solid gainsboro">
+        <div class="row row-space-25">
+            <div class="col-12">
+                <input type="hidden" id="survey-launch-id" th:value="${surveyLaunchId}"/>
+            </div>
+        </div>
+        <div th:replace="fragments/userLeftMenu :: userLeftMenuSurvey"/>
+    </div>
+    <div class="col-9 justify-content-center">
+        <div class="row row-space-15">
+            <div class="col-12">
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 style="color: whitesmoke" th:text="#{profile.surveys.pass.survey.caption}"/>
+                    <hr style="background-color: #9b9b9b"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="profile">
+                        <th:block th:each="question : ${questions}">
+                            <div class="mt-2">
+                                <label class="font-weight-bold" style="color: whitesmoke" th:text="${question.text}"/>
+                                <textarea class="form-control js-answer-textarea js-show-keyboard"
+                                          th:attr="data-question-id=${question.id}" rows="3" name="text"/>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="mt-3" style="padding-bottom: 30px;">
+                        <button type="button" class="btn btn-success btn-lg js-save-btn"
+                                th:text="#{profile.surveys.button.save.answers}"/>
+                        <a th:href="@{/profile/surveys}"
+                           th:text="#{admin.panel.surveys.button.back}" class="btn btn-danger btn-lg ml-2"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+                <div id="keyboard">
+                    <div class="keyboard-row-first">
+                        <button type="button" class="btn btn-primary symbol">1</button>
+                        <button type="button" class="btn btn-primary symbol">2</button>
+                        <button type="button" class="btn btn-primary symbol">3</button>
+                        <button type="button" class="btn btn-primary symbol">4</button>
+                        <button type="button" class="btn btn-primary symbol">5</button>
+                        <button type="button" class="btn btn-primary symbol">6</button>
+                        <button type="button" class="btn btn-primary symbol">7</button>
+                        <button type="button" class="btn btn-primary symbol">8</button>
+                        <button type="button" class="btn btn-primary symbol">9</button>
+                        <button type="button" class="btn btn-primary symbol">0</button>
+                        <button type="button" class="btn btn-primary symbol">-</button>
+                        <button type="button" class="btn btn-primary special-symbol backspace_a"><i
+                                class="far fa-caret-square-left"></i> Стереть
+                        </button>
+                    </div>
+                    <div class="keyboard-row-second">
+                        <button type="button" class="btn btn-primary symbol">й</button>
+                        <button type="button" class="btn btn-primary symbol">ц</button>
+                        <button type="button" class="btn btn-primary symbol">у</button>
+                        <button type="button" class="btn btn-primary symbol">к</button>
+                        <button type="button" class="btn btn-primary symbol">е</button>
+                        <button type="button" class="btn btn-primary symbol">н</button>
+                        <button type="button" class="btn btn-primary symbol">г</button>
+                        <button type="button" class="btn btn-primary symbol">ш</button>
+                        <button type="button" class="btn btn-primary symbol">щ</button>
+                        <button type="button" class="btn btn-primary symbol">з</button>
+                        <button type="button" class="btn btn-primary symbol">х</button>
+                        <button type="button" class="btn btn-primary symbol">ъ</button>
+                    </div>
+                    <div class="keyboard-row-third">
+                        <button type="button" class="btn btn-primary special-symbol capslock_a">Заглавные
+                        </button>
+                        <button type="button" class="btn btn-primary symbol">ф</button>
+                        <button type="button" class="btn btn-primary symbol">ы</button>
+                        <button type="button" class="btn btn-primary symbol">в</button>
+                        <button type="button" class="btn btn-primary symbol">а</button>
+                        <button type="button" class="btn btn-primary symbol">п</button>
+                        <button type="button" class="btn btn-primary symbol">р</button>
+                        <button type="button" class="btn btn-primary symbol">о</button>
+                        <button type="button" class="btn btn-primary symbol">л</button>
+                        <button type="button" class="btn btn-primary symbol">д</button>
+                        <button type="button" class="btn btn-primary symbol">ж</button>
+                        <button type="button" class="btn btn-primary symbol">э</button>
+                        <button type="button" class="btn btn-primary symbol">ё</button>
+                    </div>
+                    <div class="keyboard-row-fourth">
+                        <button type="button" class="btn btn-primary special-symbol shift_a"
+                                style="width: 115px">Shift
+                        </button>
+                        <button type="button" class="btn btn-primary symbol">я</button>
+                        <button type="button" class="btn btn-primary symbol">ч</button>
+                        <button type="button" class="btn btn-primary symbol">с</button>
+                        <button type="button" class="btn btn-primary symbol">м</button>
+                        <button type="button" class="btn btn-primary symbol">и</button>
+                        <button type="button" class="btn btn-primary symbol">т</button>
+                        <button type="button" class="btn btn-primary symbol">ь</button>
+                        <button type="button" class="btn btn-primary symbol">б</button>
+                        <button type="button" class="btn btn-primary symbol">ю</button>
+                        <button type="button" class="btn btn-primary symbol">.</button>
+                        <button type="button" class="btn btn-primary symbol">,</button>
+                        <button type="button" class="btn btn-primary symbol">?</button>
+                        <button type="button" class="btn btn-primary special-symbol shift_a"
+                                style="width: 115px">Shift
+                        </button>
+                    </div>
+                    <div class="keyboard-row-fifth">
+                        <button type="button" class="btn btn-primary symbol">!</button>
+                        <button type="button" class="btn btn-primary symbol special-symbol js-keyboard-space"
+                                style="width: 750px"> </button>
+                        <button type="button" class="btn btn-primary special-symbol js-hide-keyboard"
+                                style="width: 100px">Cкрыть
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var keyboard = {
+        input: '',
+        input_val: '',
+        capslock: false,
+        shift: false
+    };
+
+    $('.js-show-keyboard').on('focus', function () {
+        keyboard.input = $(this);
+        keyboard.input_val = $(this).val();
+        $('#keyboard').addClass('keyboard-visible');
+        $('body').css({paddingBottom: 350});
+        $('html, body').animate({
+            scrollTop: keyboard.input.offset().top
+        }, 2000);
+    });
+
+    $('.js-hide-keyboard').on('click', function () {
+        $('#keyboard').removeClass('keyboard-visible');
+        $('body').css({paddingBottom: 0});
+    });
+
+    //Печать на клавиатуре
+    $('#keyboard button').on('click', function (e) {
+        e.preventDefault();
+
+        if ($(this).hasClass('symbol')) {
+
+            $(keyboard.input).focus();
+            if ($(this).hasClass('uppercase')) {
+                keyboard.input_val += $(this).text().toUpperCase();
+                //Убираем shift
+                if (keyboard.shift === true) {
+                    if (keyboard.capslock === false) {
+                        $('.symbol').toggleClass('uppercase');
+                        //$('.capslock_a').toggleClass('active');
+                    }
+                    $('.symbol').removeClass('uppercase');
+                    keyboard.shift = false;
+                    $('.shift_a').removeClass('active');
+                }
+            } else {
+                keyboard.input_val += $(this).text();
+            }
+            $('.symbol').removeClass('active');
+            $(this).addClass('active');
+
+            $(keyboard.input).val(keyboard.input_val).keyup();
+        } else if ($(this).hasClass('backspace_a')) {
+            $(keyboard.input).focus();
+            keyboard.input_val = keyboard.input_val.substr(0, keyboard.input_val.length - 1)
+            $(keyboard.input).val(keyboard.input_val).keyup();
+        } else if ($(this).hasClass('shift_a')) {
+            $('.symbol').toggleClass('uppercase');
+            if (keyboard.capslock === true) {
+                $('.capslock_a').toggleClass('active');
+                keyboard.capslock = false;
+                keyboard.shift = false;
+            } else {
+                if (keyboard.shift === true) {
+                    keyboard.shift = false;
+                    $('.shift_a').removeClass('active');
+                } else {
+                    keyboard.shift = true;
+                    $('.shift_a').addClass('active');
+                }
+                //keyboard.shift = (keyboard.shift === true) ? false : true;
+            }
+            return false;
+        } else if ($(this).hasClass('capslock_a')) {
+            if (keyboard.capslock === false) {
+                $('.symbol').addClass('uppercase');
+                $(this).addClass('active');
+                keyboard.capslock = true;
+            } else {
+                $('.symbol').removeClass('uppercase');
+                $(this).removeClass('active');
+                keyboard.capslock = false;
+            }
+            /*$('.symbol').toggleClass('uppercase');
+            $(this).toggleClass('active');
+            keyboard.capslock = true;
+            return false;*/
+        }
+
+    });
+</script>
+</body>
+</html>

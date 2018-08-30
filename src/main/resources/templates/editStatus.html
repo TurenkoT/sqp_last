@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{ru.page.default.title.addquestion}">Add question</title>
+    <div th:replace="fragments/adminHeader :: header-css"/>
+    <div th:replace="fragments/adminHeader :: header"/>
+</head>
+<body class="body-background-color">
+<script type="text/javascript" th:src="@{/js/addNewInput.js}"></script>
+<div class="container terminalheadline">
+    <img th:src="@{/images/1200px-Severstal_logo.svg.png}" class="severstallogo"/>
+</div>
+<div>
+    <h1 class="addquestiontitle" th:text="#{ru.page.button.editquestion}">edit question title</h1>
+    <h3 class="notice" th:text="#{ru.default.notice.addNewuestion}">notice</h3>
+</div>
+<div class="container">
+    <div class="container questionaddingform">
+        <form method="POST" action="#" th:action="@{/adminPanel/questions/editStatus/edit}" enctype="multipart/form-data">
+            <input type="hidden" th:value="${question.id}" name="questionId"/>
+            <select class='questionAdditionalAnswer' name="subjectName">
+                <option th:each="subject : ${allSubjects}"
+                        th:value="${subject.getName()}"
+                        th:text="${subject.getName()}">
+                </option>
+            </select>
+            <input class='questionAdditionalAnswer' type="text" name="questionValue" placeholder="Текст вопроса" th:value="${question.text}"/>
+            <select class='questionAdditionalAnswer' name="typeQuestion">
+                <option th:each="type : ${typeQuestionList}"
+                        th:value="${type.getArticle()}"
+                        th:text="${type.getArticle()}">
+                </option>
+            </select>
+            <div class="questionAdditionalAnswerWrapper">
+                <th:block th:each="answer : ${answerList}">
+                    <input class='js-additiional-answer questionAdditionalAnswer' type="text" name="additionalAnswers[]"
+                           placeholder="Вариант ответа" th:value="${answer.getValue()}"/>
+                </th:block>
+            </div>
+            <input class="btn btn-default addnewinputbutton js-addnewinputbutton" type="button"
+                   th:value="#{ru.default.button.addOneMoreAnswer}"/>
+            <button class="btn btn-success addnewquestionbutton save-edit-question-button" type="submit"
+                    th:text="#{ru.default.button.editQuestion}"></button>
+        </form>
+        <form class="addquestioncancel" action="#" th:action="@{/adminPanel/questions}" method="get">
+            <button class="btn btn-danger addnewquestionbutton cancel-editing-new-question" type="submit"
+                    th:text="#{ru.button.default.text.cancel}"/>
+        </form>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{ru.page.default.title.adduser}">Add user</title>
+    <div th:replace="fragments/adminHeader :: header-css"/>
+    <div th:replace="fragments/adminHeader :: header"/>
+</head>
+<body class="body-background-color">
+
+<div class="container terminalheadline">
+    <img th:src="@{/images/1200px-Severstal_logo.svg.png}" class="severstallogo"/>
+</div>
+<div>
+    <h1 class="addusertitle" th:text="#{ru.page.default.title.adduser}">add user title</h1>
+</div>
+<div class="container">
+    <div class="container usereditingform">
+        <form method="POST" action="#" th:action="@{/adminPanel/doAdd}">
+            <input class='userInputField' type="text" name="fullName" placeholder="Имя пользователя"/>
+            <input class='userInputField' type="text" name="login" placeholder="Псевдоним"/>
+            <input class='userInputField' type="text" name="personalNumber" placeholder="Персональный номер"/>
+            <select class='userInputField' name="subdivision">
+                <option th:each="subdivision : ${subdivisions}"
+                        th:text="${subdivision.name}">
+                </option>
+            </select>
+            <select class='userInputField' name="profession">
+                <option th:each="profession : ${professions}"
+                        th:text="${profession.name}">
+                </option>
+            </select>
+            <select class='userInputField' name="role">
+                <option th:each="role : ${roles}"
+                        th:text="${role.type}">
+                </option>
+            </select>
+
+            <button class="btn btn-success addnewuserbutton add-new-user-button" type="submit"
+                    th:text="#{ru.page.default.title.adduser}"></button>
+        </form>
+        <form class="addusercancel" action="#" th:action="@{/adminPanel/users}" method="get">
+            <button class="btn btn-danger addnewuserbutton cancel-adding-new-user" type="submit"
+                    th:text="#{ru.button.default.text.cancel}"/>
+        </form>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>
+
+
+

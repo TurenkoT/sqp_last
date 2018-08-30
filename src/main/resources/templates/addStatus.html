@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{ru.page.default.title.questions}">Questions</title>
+    <div th:replace="fragments/adminHeader :: header-css"/>
+    <div th:replace="fragments/adminHeader :: header"/>
+</head>
+<body class="body-background-color">
+<div class="container terminalheadline">
+    <img th:src="@{/images/1200px-Severstal_logo.svg.png}" class="severstallogo"/>
+</div>
+<div class="container">
+    <div class="container addinglog">
+        <div th:if="${message}">
+            <h2 th:text="${message}"/>
+        </div>
+        <th:block th:each="message : ${log}">
+            <p th:text="${message}">message</p>
+        </th:block>
+    </div>
+    <form action="#" th:action="@{/adminPanel/questions}" method="get">
+        <button type="submit" class="btn btn-primary addOK">
+            <p th:text="#{ru.button.default.text.okbutton}">ok</p>
+        </button>
+    </form>
+</div>
+
+</body>
+</html>

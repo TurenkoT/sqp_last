@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/adminHeader :: surveysHeadFragment" th:with="title=#{admin.panel.navbar.surveys}">
+</head>
+<body>
+<div class="custom-container">
+    <div class="row main-row">
+        <div class="col-md-2 left-menu-col">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/adminPanelLeftMenu :: adminPanelLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row top-main-row-container">
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+                    <h3 class="admin-panel-table-caption" th:text="#{admin.panel.surveys.create.form.caption}"/>
+                    <h5 th:text="#{admin.panel.surveys.create.form.notice}"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-6">
+                    <form th:action="@{/adminPanel/surveys/save}" method="POST" class="admin-panel-form mt-4">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control"
+                                   th:placeholder="#{admin.panel.surveys.create.form.name.placeholder}"/>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg" th:text="#{admin.panel.button.save}"/>
+                        <a th:href="@{/adminPanel/surveys}"
+                           th:text="#{admin.panel.surveys.button.back}" class="btn btn-danger btn-lg ml-2"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+</html>

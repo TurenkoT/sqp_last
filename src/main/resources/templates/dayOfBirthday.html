@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{page.default.title.dayOfBirthday}">DAY OF BIRTHDAY </title>
+    <div th:replace="fragments/header :: header-css"/>
+    <div th:replace="fragments/header :: header"/>
+</head>
+<body style="background-color: #2d4c63">
+<div class="row main-row">
+    <div class="col-md-12">
+        <div class="row row-space-10">
+            <div class="col-md-12"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-3">
+                <span>
+                    <i class="fa fa-gift gift-icon"></i>
+                </span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <h1 style="color: whitesmoke" th:text="#{page.default.text.greeting} + ' ' + ${fullName} + '!'" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-11">
+                <h1 style="color: whitesmoke" th:text="#{page.default.text.company} + ' ' + ${organisation} + ' '+ #{page.default.text.congratulation}" />
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <h1 style="color: whitesmoke" th:text="#{page.default.text.congratulation.additional}" />
+            </div>
+        </div>
+
+        <div class="row row-space-5">
+            <div class="col-md-12"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-7">
+                <h3 style="color: whitesmoke" th:text="#{page.bday.free}" />
+            </div>
+        </div>
+        <div style="padding-top: 25px" class="row justify-content-center">
+            <div class="col-4">
+                <form action="#" th:action="@{/}" method="get">
+                    <button type="submit" class="btn btn-success confirm-accept-button"><p
+                            th:text="#{ru.button.default.text.endbutton}"/>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

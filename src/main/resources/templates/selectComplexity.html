@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{main.selectComplexity.title}"></title>
+    <div th:replace="fragments/header :: header-css"/>
+    <div th:replace="fragments/header :: header"/>
+</head>
+<script type="text/javascript" th:src="@{/js/selectComplexity.js}"></script>
+<body style="background-color: #2d4c63">
+<div class="row main-row">
+    <div class="col-md-12">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <h1 style="color: whitesmoke;padding-bottom: 10px" th:text="#{page.text.choose.complexity}"></h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-7">
+                <h4 style="color: whitesmoke;padding-bottom: 10px" th:text="#{page.personal.statistic.interval} + ' ' + ${timeSetting.getName()} + ': ' + ${personalIntervalTimeStatistic} + ' ' + #{page.postfix.points}"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                <table class="complexity-table">
+                    <th:block th:each="complexity : ${userActiveComplexity}">
+                        <tr class="complexity-table-tr">
+                            <td>
+                                <ul>
+                                    <li th:text="#{page.select.comlexity} + ' ' + ${complexity.getName()}"></li>
+                                    <li th:text="#{page.select.points} + ' ' + ${complexity.getPoints()}"></li>
+                                    <li th:text="#{page.select.penalty} + ' ' + ${complexity.getPenalty()}"></li>
+                                </ul>
+                            </td>
+                            <td>
+                                <form action="#" th:action="@{/question}" method="post">
+                                    <button type="button" class="btn btn-primary go-to-complexity-test-btn js-go-to-complexity-test-btn" th:value="${complexity.getId()}"><p
+                                            th:text="${complexity.getName()}"/>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    </th:block>
+                </table>
+            </div>
+        </div>
+        <div class="row row-space-5">
+            <div class="col-md-12"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                <h6 style="font-size: 25px; color: whitesmoke" th:text="#{page.top.ten.users}  + ' ' + ${timeSetting.getName()} + ': ' "></h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="padding-left: 50px;font-size: 14px;">
+                <th:block th:each="entry, pointer : ${topUsers}">
+                        <li style="background-color: #9bf7b2" class="list-group-item" th:text="'#' + ${pointer.index+1}+'.'+#{page.search.organisation} + ': ' + ${entry.key.getOrganisation().getName()}+ '. ' + #{page.search.subdivision} + ': ' + ${entry.key.getSubdivision().getName()} +'. ' +#{page.default.text.fullNameUser} + ': ' + ${entry.key.getFullName()} +'. ' + #{page.points.have} + ': ' + ${entry.value}"/>
+                </th:block>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

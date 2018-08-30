@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{ru.page.default.title.question}"></title>
+    <div th:replace="fragments/header :: header-css"/>
+    <div th:replace="fragments/header :: header"/>
+</head>
+<script type="text/javascript" th:src="@{/js/countdown.js}"></script>
+<script>
+    history.pushState(null, null, document.title);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, document.title);
+    });
+</script>
+<body style="background-color: #2d4c63">
+<div class="row main-row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <div class="container chart js-chart">
+                    <p id="countdown"><span></span></p>
+                </div>
+            </div>
+            <div class="col-8">
+                <h1 style="color: whitesmoke" th:text="#{page.question.instruction}"></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-9">
+                <p class="question-text-size" th:text="${question.text}">question value</p>
+                <hr style="background-color: #9b9b9b"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-11">
+                <div th:switch="${answers.size()}">
+                    <div th:case="2">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <th:block th:each="answer, pointer : ${answers}">
+                                        <div class="col-6" th:if="${pointer.index} == 0">
+                                            <form action="#" th:action="@{/question/answer/save}" method="post">
+                                                <div class="form-group ">
+                                                    <input type="hidden" th:value="${answer.correctness}"
+                                                           name="correctness"/>
+                                                    <button type="submit"
+                                                            class="btn btn-primary first-answer-list-size-2">
+                                                        <p class="answer-text-size-2" th:text="${answer.value}">
+                                                            answer
+                                                            value</p>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="col-6" th:if="${pointer.index} == 1">
+                                            <form action="#" th:action="@{/question/answer/save}" method="post">
+                                                <div class="form-group ">
+                                                    <input type="hidden" th:value="${answer.correctness}"
+                                                           name="correctness"/>
+                                                    <button type="submit"
+                                                            class="btn btn-primary second-answer-list-size-2">
+                                                        <p class="answer-text-size-2" th:text="${answer.value}">
+                                                            answer
+                                                            value</p>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                </th:block>
+                            </div>
+                        </div>
+                    </div>
+                    <div th:case="3">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <th:block th:each="answer, pointer : ${answers}">
+                                        <div class="col-6" th:if="${pointer.index} == 0">
+                                            <form action="#" th:action="@{/question/answer/save}" method="post">
+                                                <div class="form-group ">
+                                                    <input type="hidden" th:value="${answer.correctness}"
+                                                           name="correctness"/>
+                                                    <button type="submit"
+                                                            class="btn btn-primary first-answer-list-size-3">
+                                                        <p class="answer-text-size-3" th:text="${answer.value}">
+                                                            answer
+                                                            value</p>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="col-6" th:if="${pointer.index} == 1">
+                                            <form action="#" th:action="@{/question/answer/save}" method="post">
+                                                <div class="form-group ">
+                                                    <input type="hidden" th:value="${answer.correctness}"
+                                                           name="correctness"/>
+                                                    <button type="submit"
+                                                            class="btn btn-primary second-answer-list-size-3">
+                                                        <p class="answer-text-size-3" th:text="${answer.value}">
+                                                            answer
+                                                            value</p>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="col-6" th:if="${pointer.index} == 2">
+                                            <form action="#" th:action="@{/question/answer/save}" method="post">
+                                                <div class="form-group ">
+                                                    <input type="hidden" th:value="${answer.correctness}"
+                                                           name="correctness"/>
+                                                    <button type="submit"
+                                                            class="btn btn-primary third-answer-list-size-3">
+                                                        <p class="answer-text-size-3" th:text="${answer.value}">
+                                                            answer
+                                                            value</p>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                </th:block>
+                            </div>
+                        </div>
+                    </div>
+                    <div th:case="4">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <th:block th:each="answer, pointer : ${answers}">
+                                    <div class="col-6" th:if="${pointer.index} == 0">
+                                        <form action="#" th:action="@{/question/answer/save}" method="post">
+                                            <div class="form-group ">
+                                                <input type="hidden" th:value="${answer.correctness}"
+                                                       name="correctness"/>
+                                                <button type="submit"
+                                                        class="btn btn-primary first-answer-list-size-4">
+                                                    <p class="answer-text" th:text="${answer.value}">answer
+                                                        value</p>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6" th:if="${pointer.index} == 1">
+                                        <form action="#" th:action="@{/question/answer/save}" method="post">
+                                            <div class="form-group ">
+                                                <input type="hidden" th:value="${answer.correctness}"
+                                                       name="correctness"/>
+                                                <button type="submit"
+                                                        class="btn btn-primary second-answer-list-size-4">
+                                                    <p class="answer-text" th:text="${answer.value}">answer
+                                                        value</p>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6" th:if="${pointer.index} == 2">
+                                        <form action="#" th:action="@{/question/answer/save}" method="post">
+                                            <div class="form-group ">
+                                                <input type="hidden" th:value="${answer.correctness}"
+                                                       name="correctness"/>
+                                                <button type="submit"
+                                                        class="btn btn-primary third-answer-list-size-4">
+                                                    <p class="answer-text" th:text="${answer.value}">answer
+                                                        value</p>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6" th:if="${pointer.index} == 3">
+                                        <form action="#" th:action="@{/question/answer/save}" method="post">
+                                            <div class="form-group ">
+                                                <input type="hidden" th:value="${answer.correctness}"
+                                                       name="correctness"/>
+                                                <button type="submit"
+                                                        class="btn btn-primary fourth-answer-list-size-4">
+                                                    <p class="answer-text" th:text="${answer.value}">answer
+                                                        value</p>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </th:block>
+                            </div>
+                        </div>
+                    </div>
+                    <div th:case="5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <th:block th:each="answer, pointer : ${answers}">
+                                    <div class="col-6" th:if="${pointer.index} == 0">
+                                        <form action="#" th:action="@{/question/answer/save}" method="post">
+                                            <div class="form-group ">
+                                                <input type="hidden" th:value="${answer.correctness}"
+                                                       name="correctness"/>
+                                                <button type="submit"
+                                                        class="btn btn-primary first-answer-list-size-5">
+                                                    <p class="answer-text" th:text="${answer.value}">answer
+                                                        value</p>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6" th:if="${pointer.index} == 1">
+                                        <form action="#" th:action="@{/question/answer/save}" method="post">
+                                            <div class="form-group ">
+                                                <input type="hidden" th:value="${answer.correctness}"
+                                                       name="correctness"/>
+                                                <button type="submit"
+                                                        class="btn btn-primary second-answer-list-size-5">
+                                                    <p class="answer-text" th:text="${answer.value}">answer
+                                                        value</p>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6" th:if="${pointer.index} == 2">
+                                        <form action="#" th:action="@{/question/answer/save}" method="post">
+                                            <div class="form-group ">
+                                                <input type="hidden" th:value="${answer.correctness}"
+                                                       name="correctness"/>
+                                                <button type="submit"
+                                                        class="btn btn-primary third-answer-list-size-5">
+                                                    <p class="answer-text" th:text="${answer.value}">answer
+                                                        value</p>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6" th:if="${pointer.index} == 3">
+                                        <form action="#" th:action="@{/question/answer/save}" method="post">
+                                            <div class="form-group ">
+                                                <input type="hidden" th:value="${answer.correctness}"
+                                                       name="correctness"/>
+                                                <button type="submit"
+                                                        class="btn btn-primary fourth-answer-list-size-5">
+                                                    <p class="answer-text" th:text="${answer.value}">answer
+                                                        value</p>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6" th:if="${pointer.index} == 4">
+                                        <form action="#" th:action="@{/question/answer/save}" method="post">
+                                            <div class="form-group ">
+                                                <input type="hidden" th:value="${answer.correctness}"
+                                                       name="correctness"/>
+                                                <button type="submit"
+                                                        class="btn btn-primary fifth-answer-list-size-5">
+                                                    <p class="answer-text" th:text="${answer.value}">answer
+                                                        value</p>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </th:block>
+                            </div>
+                        </div>
+                    </div>
+                    <div th:case="6">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <th:block th:each="answer, pointer : ${answers}">
+                                    <div class="col-6" th:if="${pointer.index} == 0">
+                                        <form action="#" th:action="@{/question/answer/save}" method="post">
+                                            <div class="form-group ">
+                                                <input type="hidden" th:value="${answer.correctness}"
+                                                       name="correctness"/>
+                                                <button type="submit"
+                                                        class="btn btn-primary first-answer-list-size-6">
+                                                    <p class="answer-text" th:text="${answer.value}">answer
+                                                        value</p>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6" th:if="${pointer.index} == 1">
+                                        <form action="#" th:action="@{/question/answer/save}" method="post">
+                                            <div class="form-group ">
+                                                <input type="hidden" th:value="${answer.correctness}"
+                                                       name="correctness"/>
+                                                <button type="submit"
+                                                        class="btn btn-primary second-answer-list-size-6">
+                                                    <p class="answer-text" th:text="${answer.value}">answer
+                                                        value</p>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6" th:if="${pointer.index} == 2">
+                                        <form action="#" th:action="@{/question/answer/save}" method="post">
+                                            <div class="form-group ">
+                                                <input type="hidden" th:value="${answer.correctness}"
+                                                       name="correctness"/>
+                                                <button type="submit"
+                                                        class="btn btn-primary third-answer-list-size-6">
+                                                    <p class="answer-text" th:text="${answer.value}">answer
+                                                        value</p>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6" th:if="${pointer.index} == 3">
+                                        <form action="#" th:action="@{/question/answer/save}" method="post">
+                                            <div class="form-group ">
+                                                <input type="hidden" th:value="${answer.correctness}"
+                                                       name="correctness"/>
+                                                <button type="submit"
+                                                        class="btn btn-primary fourth-answer-list-size-6">
+                                                    <p class="answer-text" th:text="${answer.value}">answer
+                                                        value</p>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6" th:if="${pointer.index} == 3">
+                                        <form action="#" th:action="@{/question/answer/save}" method="post">
+                                            <div class="form-group ">
+                                                <input type="hidden" th:value="${answer.correctness}"
+                                                       name="correctness"/>
+                                                <button type="submit"
+                                                        class="btn btn-primary fifth-answer-list-size-6">
+                                                    <p class="answer-text" th:text="${answer.value}">answer
+                                                        value</p>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6" th:if="${pointer.index} == 3">
+                                        <form action="#" th:action="@{/question/answer/save}" method="post">
+                                            <div class="form-group ">
+                                                <input type="hidden" th:value="${answer.correctness}"
+                                                       name="correctness"/>
+                                                <button type="submit"
+                                                        class="btn btn-primary sixth-answer-list-size-6">
+                                                    <p class="answer-text" th:text="${answer.value}">answer
+                                                        value</p>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </th:block>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

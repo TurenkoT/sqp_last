@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{ru.page.default.title.sendreport}">Send report</title>
+    <div th:replace="fragments/userHeader :: header-css"/>
+    <div th:replace="fragments/userHeader :: header"/>
+</head>
+<body  class="body-background-color">
+<div class="container terminalheadline">
+    <img th:src="@{/images/1200px-Severstal_logo.svg.png}" class="severstallogo"/>
+</div>
+<div class="container">
+    <div th:replace="fragments/userLeftMenu :: left"/>
+    <div class="container" style="width: 500px; margin-top:30px" align="center">
+        SEND REPORT
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

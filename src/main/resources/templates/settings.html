@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/adminHeader :: adminSettingsHeadFragment" th:with="title=#{page.default.title.settings}">
+</head>
+<body>
+<div class="custom-container">
+    <div class="row main-row">
+        <div class="col-md-2 left-menu-col">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/adminPanelLeftMenu :: adminPanelLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row top-main-row-container">
+                <div class="col-md-12" style="padding-left: 25px;">
+                    <h2 style="padding-top: 35px" th:text="#{page.default.title.settings}">Settings</h2>
+                </div>
+            </div>
+            <div class="row space-row-5">
+                <div class="col-md-12"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+
+                    <table>
+                        <caption style="caption-side: top; font-size: 20px;"
+                                 th:text="#{page.type.questions.by.complexity}"></caption>
+                        <th:block th:each="complex : ${complexity}">
+                            <tr style="border-bottom: 1px solid darkgray;border-top: 1px solid darkgray;">
+                                <td>
+                                    <ul>
+                                        <li th:text="#{page.select.comlexity} + ' ' + ${complex.getName()}"></li>
+                                        <li th:text="#{page.select.points} + ' ' + ${complex.getPoints()}"></li>
+                                        <li th:text="#{page.select.penalty} + ' ' + ${complex.getPenalty()}"></li>
+                                    </ul>
+                                </td>
+                                <td th:width="50px">
+
+                                </td>
+                                <td>
+                                    <form action="#"
+                                          th:action="@{'/settings/complexity/change/{complexityId}'(complexityId=${complex.getId()})}"
+                                          method="get">
+                                        <button type="submit" class="btn btn-warning edit-complexity-button"><p
+                                                th:text="#{page.default.text.edit.complexity}"/>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </th:block>
+                    </table>
+                </div>
+            </div>
+            <div class="row space-row-5">
+                <div class="col-md-12"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+                    <table>
+                        <caption style="caption-side: top; font-size: 20px;"
+                                 th:text="#{page.settings.time.interval}"></caption>
+                        <th:block th:each="timeset : ${timeSettings}">
+                            <tr style="border-bottom: 1px solid darkgray;border-top: 1px solid darkgray;">
+                                <td>
+                                    <ul>
+                                        <li th:text="#{page.time.set.name} + ' ' + ${timeset.getName()}"></li>
+                                        <li th:text="#{page.time.set.date} + ' ' + ${timeset.getDate()}"></li>
+                                    </ul>
+                                </td>
+                                <td th:width="50px">
+
+                                </td>
+                                <td>
+                                    <form action="#"
+                                          th:action="@{'/settings/time/settings/change/{timeSettingId}'(timeSettingId=${timeset.getId()})}"
+                                          method="get">
+                                        <button type="submit" class="btn btn-warning edit-complexity-button"><p
+                                                th:text="#{page.default.text.edit.complexity}"/>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </th:block>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

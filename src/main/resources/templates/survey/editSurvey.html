@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/adminHeader :: surveysHeadFragment" th:with="title=#{admin.panel.navbar.surveys}">
+</head>
+<body>
+<div class="custom-container">
+    <div class="row main-row">
+        <div class="col-md-2 left-menu-col">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/adminPanelLeftMenu :: adminPanelLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row top-main-row-container">
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+                    <h3 class="admin-panel-table-caption" th:text="#{admin.panel.surveys.edit.form.caption}"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-6">
+                    <form th:action="@{/adminPanel/surveys/save}" method="POST" class="admin-panel-form mt-4">
+                        <div class="form-group">
+                            <input type="hidden" name="id" th:value="${survey.id}"/>
+                            <input type="text" name="name" class="form-control" th:value="${survey.name}"
+                                   th:placeholder="#{admin.panel.surveys.create.form.name.placeholder}"/>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg" th:text="#{admin.panel.button.save}"/>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-11">
+                    <h3 th:text="#{admin.panel.surveys.edit.form.questions.caption}" class="mt-5"/>
+                    <div class="admin-panel-content-table-wrapper col-8 p-0">
+                        <table class="table table-sm">
+                            <thead>
+                            <tr>
+                                <th th:text="#{admin.panel.surveys.questions.column.text}"/>
+                                <th class="text-center" th:text="#{admin.panel.surveys.column.select}"
+                                    width="100px"/>
+                                <th class="text-center" th:text="#{admin.panel.surveys.column.change}"
+                                    width="100px"/>
+                                <th class="text-center" th:text="#{admin.panel.surveys.column.delete}"
+                                    width="100px"/>
+                            </tr>
+                            </thead>
+                            <th:block th:each="question : ${survey.questions}">
+                                <tr>
+                                    <td th:text="${question.text}"/>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="js-check-table-row" th:value="${survey.id}"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <a th:href="@{/adminPanel/surveys/edit/{surveyId}/questions/edit/{questionId}(surveyId=${survey.id}, questionId=${question.id})}"
+                                           class="fa fa-edit fa-lg editicon"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <a th:href="@{/adminPanel/surveys/edit/{surveyId}/questions/delete/{questionId}(surveyId=${survey.id}, questionId=${question.id})}"
+                                           class="fa fa-remove fa-lg deletecross"/>
+                                    </td>
+                                </tr>
+                            </th:block>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-6">
+                    <h3 th:text="#{admin.panel.surveys.edit.form.add.question.caption}" class="mt-4"/>
+                    <form th:action="@{/adminPanel/surveys/edit/{surveyId}/questions/save(surveyId=${survey.id})}"
+                          method="POST" class="admin-panel-form">
+                        <div class="form-group">
+                            <input type="hidden" name="surveyId" th:value="${survey.id}"/>
+                            <textarea class="form-control" rows="3" name="text"/>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg"
+                                th:text="#{admin.panel.button.save.question}"/>
+                        <a th:href="@{/adminPanel/surveys}"
+                           th:text="#{admin.panel.surveys.button.back}" class="btn btn-danger btn-lg ml-2"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

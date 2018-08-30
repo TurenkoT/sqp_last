@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/adminHeader :: adminUsersHeadFragment" th:with="title=#{page.default.title.users}">
+</head>
+<script type="text/javascript" th:src="@{/js/usersPage.js}"></script>
+<body>
+<div class="custom-container">
+    <div class="row main-row">
+        <div class="col-md-2 left-menu-col">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/adminPanelLeftMenu :: adminPanelLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row top-main-row-container">
+                <div class="col-md-12" style="padding-left: 25px;">
+                    <h2 style="padding-top: 35px" th:text="#{page.default.title.users.list}">Users title</h2>
+                </div>
+            </div>
+            <div class="row users-row">
+                <div class="col-md-2" style="padding-left: 25px; border-right: 2px solid #3e3d3d">
+                    <div class="row space-row"></div>
+                    <div th:replace="fragments/usersLeftMenu :: usersLeftMenu"/>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input class="search-in-users-table-input js-search-users" type="text"
+                                   th:placeholder="#{page.users.search.users}"/>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 10px; height: 600px; overflow-y: scroll">
+                        <div class="col-md-12">
+                            <table class="table table-sm js-users-table">
+                                <thead>
+                                <th class="text-center" th:text="#{page.default.text.personalNumber}"
+                                    width="100px"></th>
+                                <th class="text-center" th:text="#{page.default.text.fullNameUser}"
+                                    width="140px"></th>
+                                <th class="text-center" th:text="#{page.default.title.roles}"
+                                    width="100px"></th>
+                                <th class="text-center" th:text="#{page.default.text.subdivision}"
+                                    width="140px"></th>
+                                <th class="text-center" th:text="#{page.text.profession}"
+                                    width="140px"></th>
+                                <th class="text-center" th:text="#{page.default.text.edit.user}" width="70px"></th>
+                                <th class="text-center" th:text="#{page.default.text.delete.user}" width="70px"></th>
+                                </thead>
+                                <tbody>
+                                <th:block th:each="user : ${users}">
+                                    <tr>
+                                        <td class="text-center" th:text="${user.getPersonalNumber()}"></td>
+                                        <td class="text-center" th:text="${user.getFullName()}"></td>
+                                        <td class="text-center" th:text="${user.getRoles()}"></td>
+                                        <td class="text-center" th:text="${user.getSubdivision().getName()}"></td>
+                                        <td class="text-center" th:text="${user.getStringOfProfessions()}"></td>
+                                        <td class="text-center">
+                                            <button type="button" class="fa fa-edit editicon" th:href="@{'/adminPanel/editUser/' + ${user.id}}" disabled="disabled">
+                                            </button>
+                                        </td>
+                                        <td class="text-center">
+                                            <button type="button" class="fa fa-remove deletecross" th:href="@{'/adminPanel/remove/{id}'(id=${user.id})}" disabled="disabled">
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </th:block>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

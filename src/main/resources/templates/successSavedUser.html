@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{ru.page.default.title.adduser}">Add user</title>
+    <div th:replace="fragments/adminHeader :: header-css"/>
+    <div th:replace="fragments/adminHeader :: header"/>
+</head>
+<body class="body-background-color">
+
+    <div class="container terminalheadline">
+        <img th:src="@{/images/1200px-Severstal_logo.svg.png}" class="severstallogo"/>
+    </div>
+
+    <div class="container successsaveuser" style="width: 500px; margin-top: 200px; text-align: center">
+
+        <form action="#" th:inline="text" th:action="@{/adminPanel/users}" method="get" name="login" >
+            <h1>Пользователь <b><i>[[${fullName}]]</i></b> успешно сохранён!</h1>
+            <button class="btn btn-success addnewquestionbutton center" type="submit" th:text="Ok"/>
+        </form>
+
+    </div>
+    <div th:replace="fragments/footer :: footer"/>
+</body>
+</html>
+
+
+
+
+<!--<div class="container" style=" background:#e9eeff; margin: 150px auto; padding: 30px; border: 1px solid #000">-->
+    <!--<div class="container" style="width: 500px; margin-top:30px" align="center">-->
+
+        <!--<h1>Пользователь успешно сохранён!</h1>-->
+
+
+        <!--<input type="button" class="btn btn-default" th:value="Назад" onclick="location.href='users.html'"/>-->
+
+
+    <!--</div>-->
+<!--</div>-->

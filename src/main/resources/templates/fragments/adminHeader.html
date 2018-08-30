@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head th:fragment="correctHeadFragment">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/terminal.css}"/>
+    <link rel="stylesheet" th:href="@{/css/adminPanel.css}"/>
+
+    <script type="text/javascript"
+            src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/underscorejs/1.8.3/underscore-min.js"></script>
+</head>
+<head th:fragment="surveysHeadFragment">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/adminPanel.css}"/>
+
+    <script type="text/javascript"
+            src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/underscorejs/1.8.3/underscore-min.js"></script>
+</head>
+
+<head th:fragment="adminHeadFragment">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    <link rel="stylesheet" th:href="@{/css/adminPanel.css}"/>
+
+    <script type="text/javascript"
+            src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/underscorejs/1.8.3/underscore-min.js"></script>
+</head>
+<head th:fragment="adminRelationHeadFragment">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    <link rel="stylesheet" th:href="@{/css/adminPanel.css}"/>
+
+    <script type="text/javascript"
+            src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/underscorejs/1.8.3/underscore-min.js"></script>
+</head>
+<head th:fragment="adminRolesHeadFragment">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/adminPanel.css}"/>
+    <script type="text/javascript"
+            src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/underscorejs/1.8.3/underscore-min.js"></script>
+</head>
+<head th:fragment="authHeadFragment">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/auth.css}"/>
+    <script type="text/javascript"
+            src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/underscorejs/1.8.3/underscore-min.js"></script>
+</head>
+
+<head th:fragment="adminStatisticHeadFragment">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/adminPanel.css}"/>
+    <script type="text/javascript"
+            src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/underscorejs/1.8.3/underscore-min.js"></script>
+</head>
+<head th:fragment="adminUploadStatusHeadFragment">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/adminPanel.css}"/>
+    <script type="text/javascript"
+            src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/underscorejs/1.8.3/underscore-min.js"></script>
+</head>
+<head th:fragment="adminPanelHeadFragment">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/adminPanel.css}"/>
+    <script type="text/javascript"
+            src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/underscorejs/1.8.3/underscore-min.js"></script>
+</head>
+<head th:fragment="adminUsersHeadFragment">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/adminPanel.css}"/>
+    <script type="text/javascript"
+            src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/underscorejs/1.8.3/underscore-min.js"></script>
+</head>
+<head th:fragment="adminQuestionsHeadFragment">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/adminPanel.css}"/>
+    <script type="text/javascript"
+            src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/underscorejs/1.8.3/underscore-min.js"></script>
+</head>
+<head th:fragment="adminSettingsHeadFragment">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/adminPanel.css}"/>
+    <script type="text/javascript"
+            src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/underscorejs/1.8.3/underscore-min.js"></script>
+</head>
+<head>
+    <div th:fragment="header-css">
+        <!-- this is header-css -->
+        <link rel="stylesheet" type="text/css"
+              href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css"
+              href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+        <link rel="stylesheet" th:href="@{/css/main.css}"/>
+        <link rel="stylesheet" th:href="@{/css/terminal.css}"/>
+    </div>
+</head>
+<body>
+<div th:fragment="auth-user">
+    <div class="row header-main-row-container">
+        <div class="col-md-12 who-is-it">
+            <h5 th:text="#{page.info.auth.as}">Auth as</h5>
+            <h5 style="font-size: 15px"
+                th:text="#{page.info.user.personal.number} + ': '+ ${user.getPersonalNumber()} + '. ' + #{page.info.user.name} + ': ' + ${user.getFullName()} + '. '  + #{page.info.user.organisation}+ ': ' + ${user.getOrganisation().getName()}"></h5>
+        </div>
+    </div>
+</div>
+<div th:fragment="header">
+    <script type="text/javascript"
+            src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+          src="/webjars/underscorejs/1.8.3/underscore-min.js"></script>
+    <div class="container" th:fragment="header">
+        <div class="container" style="position: absolute;">
+            <div style="margin-left: 739px;">
+                <form action="#" th:action="@{/adminPanel}" method="get">
+                <button type="submit" class="homepageadminpage  home-icon"><i class="fa fa-home"></i></button>
+                </form>
+                <ul style="max-width: 100%; list-style-type: none;">
+                    <li style="padding: 3px; width: 10px;">
+                        <form action="#" th:action="@{/adminPanel}" method="get">
+                            <button type="submit" class="btn-primary linksstyleadminpage admin-panel-navbar-buttons-main"><p
+                                    th:text="#{ru.page.navbar.adminpage.main}">main</p>
+                            </button>
+                        </form>
+                    </li>
+                    <li style="padding: 3px; width: 10px;">
+                        <form action="#" th:action="@{/adminPanel/users}" method="get">
+                            <button type="submit" class="btn-primary linksstyleadminpage admin-panel-navbar-buttons-users"><p
+                                    th:text="#{ru.page.navbar.adminpage.users}">users</p>
+                            </button>
+                        </form>
+                    </li>
+                    <li style="padding: 3px; width: 10px;">
+                        <form action="#" th:action="@{/adminPanel/surveys}" method="get">
+                            <button type="submit" class="btn-primary linksstyleadminpage admin-panel-navbar-buttons-tests">
+                                <p th:text="#{admin.panel.navbar.surveys}"/>
+                            </button>
+                        </form>
+                    </li>
+                    <li style="padding: 3px; width: 10px;">
+                        <form action="#" th:action="@{/adminPanel/questions}" method="get">
+                            <button type="submit" class="btn-primary linksstyleadminpage admin-panel-navbar-buttons-questions"><p
+                                    th:text="#{ru.page.navbar.adminpage.questions}">questions</p>
+                            </button>
+                        </form>
+                    </li>
+                    <li style="padding: 3px; width: 10px;">
+                        <form action="#" th:action="@{/adminPanel/statistic}" method="get">
+                            <button type="submit" class="btn-primary linksstyleadminpage admin-panel-navbar-buttons-statistic"><p
+                                    th:text="#{ru.page.navbar.adminpage.statistic}">stat</p></button>
+                        </form>
+                    </li>
+                    <li style="padding: 3px; width: 10px;">
+                        <form action="#" th:action="@{/adminPanel/competence}" method="get">
+                            <button type="submit" class="btn-primary linksstyleadminpage admin-panel-navbar-buttons-competence"><p
+                                    th:text="#{ru.page.navbar.adminpage.competence}">competence</p></button>
+                        </form>
+                    </li>
+                    <li style="padding: 3px; width: 10px;">
+                        <form action="#" th:action="@{/adminPanel/roles}" method="get">
+                            <button type="submit" class="btn-primary linksstyleadminpage admin-panel-navbar-buttons-roles"><p
+                                    th:text="#{ru.page.navbar.adminpage.roles}">Roles</p></button>
+                        </form>
+                    </li>
+                    <li style="padding: 3px; width: 10px;">
+                        <form action="#" th:action="@{/adminPanel/feedback}" method="get">
+                            <button type="submit" class="btn-primary linksstyleadminpage admin-panel-navbar-buttons-feedback"><p
+                                    th:text="#{ru.page.navbar.adminpage.feedback}"></p></button>
+                        </form>
+                    </li>
+                    <li style="padding: 3px; width: 10px;" sec:authorize="isAuthenticated()">
+                        <form action="#" th:action="@{/logout}" method="get">
+                            <button type="submit" class="btn-primary linksstyleadminpage admin-panel-navbar-buttons-change-user">
+                            <span class="glyphicon glyphicon-log-out" aria-hidden="true"
+                                  th:text="#{ru.page.navbar.adminpage.logout}"></span>
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

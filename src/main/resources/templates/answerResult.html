@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{ru.page.default.title.answerResult}">ANSWER RESULT </title>
+    <div th:replace="fragments/header :: header-css"/>
+    <div th:replace="fragments/header :: header"/>
+</head>
+<body style="background-color: #2d4c63">
+<div class="row main-row justify-content-center">
+    <div class="col-10">
+        <div class="row row-space-10">
+            <div class="col-md-12"></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <th:block>
+                        <div th:switch="${answerresult}">
+                            <div class="row justify-content-center" th:case="true">
+                                <div class="col-10">
+                                    <div style="padding-bottom: 70px" class="row justify-content-center">
+                                        <div class="col-3">
+                                            <span>
+                                               <i class="fa fa-smile-o happy-smile"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div style="padding-bottom: 10px" class="row justify-content-center">
+                                        <div class="col-md-12">
+                                            <h2 style="color: whitesmoke" th:text="#{ru.page.text.goodanswer}">GRATZ!
+                                                YOUR
+                                                ANSWER IS CORRECT</h2>
+                                        </div>
+                                    </div>
+                                    <div style="padding-bottom: 10px" class="row justify-content-center">
+                                        <div class="col-md-12">
+                                            <h4 style="color: whitesmoke"
+                                                th:text="#{page.personal.month.statistic} + ' ' + ${personalMonthStatistic} + ' ' + #{page.postfix.points}"/>
+                                        </div>
+                                    </div>
+                                    <div style="padding-bottom: 10px" class="row justify-content-center">
+                                        <div class="col-12">
+                                            <h4 style="color: whitesmoke"
+                                                th:text="#{page.personal.statistic.interval} + ' ' + ${timeSetting.getName()} + ': ' + ${personalIntervalTimeStatistic} + ' ' + #{page.postfix.points}"/>
+                                        </div>
+                                    </div>
+                                    <div style="padding-top: 30px" class="row justify-content-center">
+                                        <div class="col-6">
+                                            <form action="#" th:action="@{/}" method="get">
+                                                <button type="submit" class="btn btn-success answergoodresultbutton"><p
+                                                        th:text="#{ru.button.default.text.endbutton}"/>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div th:case="false" class="row justify-content-center">
+                                <div class="col-10">
+                                    <div style="padding-bottom: 70px" class="row justify-content-center">
+                                        <div class="col-3">
+                                            <span>
+                                               <i class="fa fa-frown-o sad-smile"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div style="padding-bottom: 10px" class="row justify-content-center">
+                                        <div class="col-12">
+                                            <h1 style="color: whitesmoke" th:text="#{ru.page.text.badanswer}">YOUR
+                                                ANSWER IS WRONG! TRY ONE MORE
+                                                TIME</h1>
+                                        </div>
+                                    </div>
+                                    <div style="padding-bottom: 10px" class="row justify-content-center">
+                                        <div class="col-12">
+                                            <h3 style="color: whitesmoke" th:text="#{ru.page.text.hint}">hint</h3>
+                                        </div>
+                                    </div>
+                                    <div style="padding-bottom: 10px" class="row justify-content-center">
+                                        <div class="col-12">
+                                            <h2 class="hint" th:text="${rightAnswer.value}">right answer</h2>
+                                        </div>
+                                    </div>
+                                    <div style="padding-top: 30px" class="row justify-content-center">
+                                        <div class="col-6">
+                                            <form action="#" th:action="@{/question}" method="get">
+                                                <button type="submit" class="btn btn-danger answerbadresultbutton"><p
+                                                        th:text="#{ru.button.default.text.onemoretrybutton}"/>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </th:block>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

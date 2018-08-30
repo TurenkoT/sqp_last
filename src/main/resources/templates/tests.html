@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{ru.page.default.title.tests}">Tests</title>
+    <div th:replace="fragments/adminHeader :: header-css"/>
+    <div th:replace="fragments/adminHeader :: header"/>
+</head>
+<body class="body-background-color">
+<div class="container terminalheadline">
+    <img th:src="@{/images/1200px-Severstal_logo.svg.png}" class="severstallogo"/>
+</div>
+<div class="container">
+    <div class="container">
+        TESTS
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

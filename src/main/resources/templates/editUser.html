@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{ru.page.default.title.edituser}">Edit user</title>
+    <div th:replace="fragments/adminHeader :: header-css"/>
+    <div th:replace="fragments/adminHeader :: header"/>
+</head>
+<body class="body-background-color">
+
+    <div class="container terminalheadline">
+        <img th:src="@{/images/1200px-Severstal_logo.svg.png}" class="severstallogo"/>
+    </div>
+    <div>
+        <h1 class="editusertitle" th:text="#{ru.page.default.title.edituser}">edit user title</h1>
+    </div>
+    <div class="container">
+        <div class="container usereditingform">
+            <form class="form-horizontal" th:action="@{'/adminPanel/save/'}" th:object="${user}" method="post">
+
+                <input type="hidden" th:field="${user.id}"/>
+                <div>
+                    <h4>Имя пользователя</h4>
+                    <input type="text" class="userInputField" id="name" th:field="${user.fullName}"/>
+                </div>
+
+                <div>
+                    <h4>Псевдоним</h4>
+                    <input type="text" class="userInputField" id="login" th:field="${user.login}"/>
+                </div>
+
+                <div>
+                    <h4>Табельный номер</h4>
+                    <input type="text" class="userInputField" id="number" th:field="${user.personalNumber}"/>
+                </div>
+
+                <div>
+                    <h4>Роль</h4>
+                    <select class='userInputField' name="role">
+                        <option th:each="role : ${roles}"
+                                th:text="${role.type}">
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <h4>Подразделения</h4>
+                    <select class='userInputField' name="subdivision">
+                        <option th:each="subdivision : ${subdivisions}"
+                                th:text="${subdivision.name}">
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <h4>Профессии</h4>
+                    <select class='userInputField' name="profession">
+                        <option th:each="profession : ${professions}"
+                                th:text="${profession.name}">
+                        </option>
+                    </select>
+                </div>
+
+
+
+                <button class="btn btn-success addnewuserbutton save-edit-user-button" type="submit"
+                    th:text="Применить"></button>
+            </form>
+
+            <form class="addusercancel" action="#" th:action="@{/adminPanel/users}" method="get">
+                <button class="btn btn-danger addnewuserbutton cancel-editing-user" type="submit"
+                    th:text="#{ru.button.default.text.cancel}"/>
+            </form>
+        </div>
+    </div>
+    <div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

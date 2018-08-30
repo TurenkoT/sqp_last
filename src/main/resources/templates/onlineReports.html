@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/adminHeader :: adminHeadFragment" th:with="title=#{onlineReports.title}">
+</head>
+<script type="text/javascript" th:src="@{/js/getOnlineReportParameters.js}"></script>
+<script type="text/javascript" th:src="@{/js/reportfiledownload.js}"></script>
+<body>
+<div class="custom-container">
+    <div class="row main-row-report">
+        <div class="col-md-2 left-menu-col-report">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/onlineReportLeftMenu :: onlineReportLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row top-main-row-container">
+            </div>
+            <div class="row middle-main-row-container">
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+                    <h2 th:text="#{onlineReports.header}">Report title</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-5">
+                    <br/>
+                    <h4 class="text-left" th:text="#{reports.form.organisation.label}"/>
+                </div>
+                <div class="col-5">
+                    <br/>
+                    <h4 class="text-left" th:text="#{reports.form.subdivision.label}"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="com-md-5 buttons-row-business-unit-button">
+                    <button class="btn btn-all-business-unit js-all-business-unit" type="button"
+                            th:text="#{page.button.allBussinesUnit}"/>
+                </div>
+                <div class="com-md-1">
+                    <button class="btn btn-all-subdivisions js-all-subdivisions" type="button"
+                            th:text="#{onlineReports.button.subdivisions}"/>
+                </div>
+            </div>
+            <div class="row br-row">
+                <div class="col-md-12"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <div class="well" style="height: 300px;overflow: auto;">
+                        <ul class="list-group checked-list-box">
+                            <th:block th:each="organisation : ${organisations}">
+                                <li class="list-group-item">
+                                    <input name="checkme" type="checkbox" class="js-organisation-checkbox"
+                                           th:attr="data-organisation-id=${organisation.id}"/>
+                                    <label th:text="${organisation.name}"/>
+                                </li>
+                            </th:block>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="well" style="height: 300px;overflow: auto;">
+                        <ul class="list-group checked-list-box">
+                            <th:block th:each="entry : ${subdivisionsMap}">
+                                <div th:attr="data-organisation-id=${entry.key.key}" class="js-subdivisions-box">
+                                    <li class="list-group-item organisation-line-color" th:text="${entry.key.value}"/>
+                                    <th:block th:each="subdivision : ${entry.value}">
+                                        <li id="subdivision" class="list-group-item">
+                                            <input type="checkbox" disabled="true" class="js-subdivision-checkbox"
+                                                   th:value="${subdivision.id}"/>
+                                            <label th:text="${subdivision.name}" class="checkbox-label-disabled"/>
+                                        </li>
+                                    </th:block>
+                                </div>
+                            </th:block>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <p></p>
+            <div class="row date-main-row-container">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <label for="date-from" th:text="#{page.text.from}"> date from</label>
+                    <input id="date-from" class="js-from-date" type="datetime-local"
+                           disabled="disabled"/>
+                </div>
+                <div class="col-md-3">
+                    <label for="date-until" th:text="#{page.text.until}"> date until</label>
+                    <input id="date-until" class="js-to-date" type="datetime-local"
+                           disabled="disabled"/>
+                </div>
+                <div class="col-md-2">
+                    <label for="hours" th:text="#{onlineReports.lable.for}">for hour</label>
+                    <select disabled="disabled" id='hours' onchange="getHours()" class="js-hour-from-select" style="width: 150px">
+                        <option selected="selected" value='1' th:text="#{onlineReports.hours.one}">1 hour</option>
+                        <option value='2' th:text="#{onlineReports.hours.two}">2 hour</option>
+                        <option value='3' th:text="#{onlineReports.hours.three}">3 hour</option>
+                        <option value='4' th:text="#{onlineReports.hours.four}">4 hour</option>
+                        <option value='5' th:text="#{onlineReports.hours.five}">5 hour</option>
+                        <option value='6' th:text="#{onlineReports.hours.six}">6 hour</option>
+                        <option value='7' th:text="#{onlineReports.hours.seven}">7 hour</option>
+                        <option value='8' th:text="#{onlineReports.hours.eight}">8 hour</option>
+                        <option value='9' th:text="#{onlineReports.hours.nine}">9 hour</option>
+                        <option value='10' th:text="#{onlineReports.hours.ten}">10 hour</option>
+                        <option value='11' th:text="#{onlineReports.hours.eleven}">11 hour</option>
+                        <option value='12' th:text="#{onlineReports.hours.twelve}">12 hour</option>
+                        <option value='13' th:text="#{onlineReports.hours.thirteen}">13 hour</option>
+                        <option value='14' th:text="#{onlineReports.hours.fourteen}">14 hour</option>
+                        <option value='15' th:text="#{onlineReports.hours.fifteen}">15 hour</option>
+                        <option value='16' th:text="#{onlineReports.hours.sixteen}">16 hour</option>
+                        <option value='17' th:text="#{onlineReports.hours.seventeen}">17 hour</option>
+                        <option value='18' th:text="#{onlineReports.hours.eighteen}">18 hour</option>
+                        <option value='19' th:text="#{onlineReports.hours.nineteen}">19 hour</option>
+                        <option value='20' th:text="#{onlineReports.hours.twenty}">20 hour</option>
+                        <option value='21' th:text="#{onlineReports.hours.twenty.one}">21 hour</option>
+                        <option value='22' th:text="#{onlineReports.hours.twenty.two}">22 hour</option>
+                        <option value='23' th:text="#{onlineReports.hours.twenty.three}">23 hour</option>
+                        <option value='24' th:text="#{onlineReports.hours.twenty.four}">24 hour</option>
+
+                    </select>
+                </div>
+            </div>
+            <p></p>
+            <div class="row switchers-main-row-container">
+                <div class="col-md-1"></div>
+                <div class="col-md-1">
+                    <!--<button type="button" class="btn date-buttons js-date-day" th:text="#{page.button.day}"-->
+                            <!--disabled="disabled">Day-->
+                    <!--</button>-->
+                </div>
+                <div class="col-md-1">
+                    <!--<button type="button" class="btn date-buttons js-date-month" th:text="#{page.button.month}"-->
+                            <!--disabled="disabled">Month-->
+                    <!--</button>-->
+                </div>
+                <div class="col-md-1">
+                    <!--<button type="button" class="btn date-buttons js-date-year" th:text="#{page.button.year}"-->
+                            <!--disabled="disabled">Year-->
+                    <!--</button>-->
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <!--<h4 class="text-left" th:text="#{reports.form.report.type}"/>-->
+                    <!--<label for="month-from" th:text="#{page.text.from}"> Month from</label>-->
+                    <!--<select id='month-from' class="js-month-from-select" style="width: 150px">-->
+                        <!--<option selected="selected" value='0' th:text="#{page.text.month.name.janaury}">Janaury</option>-->
+                        <!--<option value='1' th:text="#{page.text.month.name.february}">February</option>-->
+                        <!--<option value='2' th:text="#{page.text.month.name.march}">March</option>-->
+                        <!--<option value='3' th:text="#{page.text.month.name.april}">April</option>-->
+                        <!--<option value='4' th:text="#{page.text.month.name.may}">May</option>-->
+                        <!--<option value='5' th:text="#{page.text.month.name.june}">June</option>-->
+                        <!--<option value='6' th:text="#{page.text.month.name.july}">July</option>-->
+                        <!--<option value='7' th:text="#{page.text.month.name.august}">August</option>-->
+                        <!--<option value='8' th:text="#{page.text.month.name.september}">September</option>-->
+                        <!--<option value='9' th:text="#{page.text.month.name.october}">October</option>-->
+                        <!--<option value='10' th:text="#{page.text.month.name.november}">November</option>-->
+                        <!--<option value='11' th:text="#{page.text.month.name.december}">December</option>-->
+                    <!--</select>-->
+                    <!--<label for="month-until" th:text="#{page.text.until}"> Month until</label>-->
+                    <!--<select id='month-until' class="js-month-until-select" style="width: 150px">-->
+                        <!--<option selected="selected" value='0' th:text="#{page.text.month.name.janaury}">Janaury</option>-->
+                        <!--<option value='1' th:text="#{page.text.month.name.february}">February</option>-->
+                        <!--<option value='2' th:text="#{page.text.month.name.march}">March</option>-->
+                        <!--<option value='3' th:text="#{page.text.month.name.april}">April</option>-->
+                        <!--<option value='4' th:text="#{page.text.month.name.may}">May</option>-->
+                        <!--<option value='5' th:text="#{page.text.month.name.june}">June</option>-->
+                        <!--<option value='6' th:text="#{page.text.month.name.july}">July</option>-->
+                        <!--<option value='7' th:text="#{page.text.month.name.august}">August</option>-->
+                        <!--<option value='8' th:text="#{page.text.month.name.september}">September</option>-->
+                        <!--<option value='9' th:text="#{page.text.month.name.october}">October</option>-->
+                        <!--<option value='10' th:text="#{page.text.month.name.november}">November</option>-->
+                        <!--<option value='11' th:text="#{page.text.month.name.december}">December</option>-->
+                    <!--</select>-->
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row space-main-row-container">
+            </div>
+            <p></p>
+            <div class="row low-main-row-container">
+                <div class="col-md-1"></div>
+                <form class="col-md-3" action="#" th:action="@{/report/download}" method="post">
+                    <button type="button" class="btn btn-success report-button-unload js-get-report"
+                            th:text="#{page.button.unload}" disabled="disabled">
+                        Unload report
+                    </button>
+                </form>
+                <form class="col-md-3" action="#" method="post">
+                    <button type="button" class="btn btn-success report-button-unload js-get-online-report"
+                            th:text="#{onlineReports.button}" disabled="disabled">
+                        online report
+                    </button>
+                </form>
+                <div class="col-md-1"></div>
+                <form class="col-md-2" action="#" th:action="@{/report/download/full_be}" method="post">
+                    <!--<button type="button" class="btn btn-success report-button-unload js-get-full-be-report"-->
+                            <!--th:text="#{page.button.full.be}" disabled="disabled">-->
+                        <!--Unload report-->
+                    <!--</button>-->
+                </form>
+                <form class="col-md-2" action="#" th:action="@{/report/download/subdvision}" method="post">
+                    <!--<button type="button" class="btn btn-success report-button-unload js-get-subdivision-report"-->
+                            <!--th:text="#{page.button.subdiv.report}" disabled="disabled">-->
+                        <!--Unload report-->
+                    <!--</button>-->
+                </form>
+                <form class="col-md-2" action="#" th:action="@{/report/download/profession}" method="post">
+                    <!--<button type="button" class="btn btn-success report-button-unload js-get-profession-report"-->
+                            <!--th:text="#{page.button.profession.report}" disabled="disabled">-->
+                        <!--Unload report-->
+                    <!--</button>-->
+                </form>
+            </div>
+            <div class="row">
+                <div class="col-md-5"></div>
+                <form class="col-md-2" id="spinner" style="display: none">
+                        <i style="margin-left: 42px;font-size: 100px;" class="fa fa-spinner fa-pulse"></i>
+                        <h3 style="margin-left: 25px" th:text="#{ru.page.default.text.download}">Download</h3>
+                </form>
+                <form class="col-md-2" action="#" th:action="@{/report/download/subject}" method="post">
+                    <!--<button type="button" class="btn btn-success report-button-unload js-get-subject-report"-->
+                            <!--th:text="#{page.button.subject.report}" disabled="disabled">-->
+                        <!--Unload report-->
+                    <!--</button>-->
+                </form>
+            </div>
+            <p></p>
+            <!--<div class="row">-->
+                <!--<div class="col-md-1"></div>-->
+                <!--<div id="div" class="col-md-10">-->
+                    <!--<h4 th:text="#{admin.panel.surveys.launch.form.organisation.label}"></h4>-->
+                    <!--<select onchange="filterByOrganisation()" id="organisation">-->
+                        <!--<option th:each="organisation, i : ${organisations}"-->
+                                <!--th:text="${i.current.getName()}">-->
+                        <!--</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+                <!--<div class="col-md-1"></div>-->
+            <!--</div>-->
+            <p></p>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <table id="tableEmployees" class="col-md-10 table table-sm">
+                    <thead>
+                    <tr>
+                        <th class="text-center" th:text="#{onlineReports.column.organisation}"></th>
+                        <th class="text-center" th:text="#{onlineReports.column.subdivision}"></th>
+                        <th class="text-center" th:text="#{onlineReports.column.fullNameUser}"></th>
+                        <th class="text-center" th:text="#{onlineReports.column.personalNumber}" width="90px"></th>
+                        <th class="text-center" th:text="#{onlineReports.column.time}"></th>
+                        <th class="text-center" th:text="#{onlineReports.column.сountAnswer}"></th>
+                        <th class="text-center" th:text="#{onlineReports.column.passed}" width="190px"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

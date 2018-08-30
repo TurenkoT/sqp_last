@@ -1,0 +1,76 @@
+html, body {
+    height: 100%;
+}
+.custom-container{
+    height: 100%;
+    width: 100%;
+    background: #F5F5F5;
+}
+.left-menu-col{
+    height: 100%;
+    background: #4682B4;
+    float: left;
+}
+
+.main-row{
+    height: 100%;
+    width: 100%;
+    max-width: 1900px;
+    float: left;
+}
+
+.main-col{
+    height: 100%;
+    background: #F5F5F5;
+    width: 100%;
+    float: left;
+}
+
+.header-main-row-container{
+    height: 7%;
+    background: #3e3d3d;
+}
+
+.top-row-container{
+    height: 20%;
+}
+
+.middle-row-container{
+    height: 100%;
+}
+
+.who-is-it{
+    text-align: right;
+    color: white;
+}
+.top-main-row-container{
+    height: 15%;
+}
+
+.top-auth-row{
+    height: 7%;
+    width: 100%;
+    background: #3e3d3d;
+}
+.space-row{
+    height: 20%;
+    max-width: 1900px;
+}
+.space-row-5{
+    height: 5%;
+    max-width: 1900px;
+}
+
+.auth-container{
+    height: 350px;
+}
+
+.sing-in-button{
+    width: 400px;
+    height: 50px;
+}
+.auth-inputs{
+    width: 502px;
+    height: 50px;
+    padding-left: 104px;
+}

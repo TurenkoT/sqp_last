@@ -1,0 +1,313 @@
+html, body {
+    height: 100%;
+}
+
+.custom-container {
+    height: 100%;
+    width: 100%;
+    background: #F5F5F5;
+}
+
+.left-menu-col {
+    height: 100%;
+    background: #4682B4;
+    float: left;
+}
+
+.main-row {
+    height: 100%;
+    width: 100%;
+    float: left;
+}
+
+.left-menu-col-report {
+    min-height: 100%;
+    background: #4682B4;
+    float: left;
+}
+
+.main-row-report {
+    min-height: 100%;
+    width: 100%;
+    float: left;
+}
+
+.main-col {
+    height: 100%;
+    background: #F5F5F5;
+    width: 100%;
+    float: left;
+}
+
+.left-menu-top-button-rows {
+    border-bottom: 1px solid #87CEEB;
+}
+
+.left-menu-middle-buttons-rows {
+    border-top: 1px solid #87CEEB;
+    border-bottom: 1px solid #87CEEB;
+}
+
+.left-menu-low-button-rows {
+    border-top: 1px solid #87CEEB;
+    border-bottom: 2px solid #87CEEB;
+}
+
+.left-menu-buttons {
+    background: #4682B4;
+    border: 0px;
+    height: 100%;
+    width: 335px;
+    font-size: 17px;
+}
+
+.header-main-row-container {
+    height: 7%;
+    background: #3e3d3d;
+}
+
+.top-row-container {
+    height: 20%;
+}
+
+.middle-row-container {
+    height: 100%;
+}
+
+.who-is-it {
+    text-align: right;
+    color: white;
+}
+
+.top-main-row-container {
+    height: 8%;
+}
+
+.space-row {
+    height: 20%;
+}
+
+.space-row-5 {
+    height: 5%;
+}
+
+.search-in-questions-table-input {
+    text-align: left;
+    padding-left: 6px;
+    width: 380px;
+}
+
+.deletecross {
+    color: #b11515;
+    border: 0px;
+    background-color: whitesmoke;
+    font-size: 23px;
+}
+
+.editicon {
+    color: #FFB47C;
+    border: 0px;
+    background-color: whitesmoke;
+    font-size: 23px;
+}
+
+.section-buttons {
+    width: 230px;
+    height: 50px;
+    font-size: 17px;
+    background: darkgray;
+    border-color: darkgray;
+    color: black;
+}
+
+.questions-upload-button {
+    width: 250px;
+    height: 50px;
+    font-size: 17px;
+    padding-top: 11px;
+}
+
+.save-relation-button {
+    padding-top: 11px;
+    width: 483px;
+    height: 49px;
+}
+
+.space-row-5 {
+    height: 5%;
+}
+
+.searchRelInput {
+    width: 250px;
+    margin-top: 3px;
+}
+
+.search-in-users-table-input {
+    text-align: left;
+    padding-left: 6px;
+    width: 380px;
+}
+
+.date-buttons {
+    width: 100%;
+    height: 40px;
+    background: darkgray;
+    font-size: 16px;
+}
+
+.report-button-unload {
+    width: 100%;
+    height: 45px;
+    font-size: 17px;
+}
+
+.switchers-main-row-container {
+    height: 5%;
+}
+
+.organisation-line-color {
+    background: #aec5d6;
+}
+
+.buttons-row-business-unit-button {
+    width: 41.7%;
+}
+
+.buttons-row-choose-all-button {
+    width: 30%;
+}
+
+.btn-all-business-unit {
+    margin-left: 15px;
+}
+
+.btn-all-subdivisions {
+    margin-left: 15px;
+}
+
+.br-row {
+    height: 10px;
+}
+
+.optional-buttons {
+    width: 250px;
+    height: 40px;
+    background: darkgray;
+    font-size: 16px;
+}
+
+.middle-main-row-container {
+    height: 5%;
+}
+
+.parameters-main-row-container {
+    height: 40%;
+}
+
+.date-main-row-container {
+    height: 7%;
+}
+
+.space-main-row-container {
+    height: 5%;
+}
+
+.low-main-row-container {
+    height: 8%;
+}
+
+.search-in-roles-table-inputs {
+    text-align: left;
+    padding-left: 6px;
+    width: 380px;
+}
+
+.save-roles-button {
+    width: 250px;
+    font-size: 17px;
+}
+
+.roles-row {
+    height: 65%;
+}
+
+.surveys-upload-button {
+    width: 250px;
+    height: 50px;
+    font-size: 17px;
+    padding-top: 11px;
+}
+
+.organisation-line-color {
+    background: #aec5d6;
+}
+
+.upload-button-ok {
+    width: 250px;
+    height: 45px;
+}
+
+.users-upload-button {
+    width: 250px;
+    height: 50px;
+    font-size: 17px;
+    padding-top: 11px;
+}
+
+.edit-complexity-button {
+    width: 200px;
+    height: 40px;
+    font-size: 17px;
+}
+
+.row-height-5 {
+    height: 5%;
+}
+
+.complexity-edit-inputs {
+    height: 30px;
+    padding-bottom: 4px;
+    width: 200px;
+}
+
+.complexity-edit-buttons {
+    width: 200px;
+    height: 45px;
+    font-size: 17px;
+}
+
+.question-edit-inputs {
+    height: 35px;
+    padding-bottom: 4px;
+    width: 370px;
+}
+
+.question-add-inputs {
+    height: 35px;
+    padding-bottom: 4px;
+    width: 370px;
+}
+
+.question-edit-buttons {
+    width: 300px;
+    height: 45px;
+    font-size: 17px;
+}
+
+.question-add-buttons {
+    width: 300px;
+    height: 45px;
+    font-size: 17px;
+}
+
+.questions-set-complexity {
+    width: 200px;
+    height: 35px;
+}
+
+.js-set-complexity-button{
+    width: 200px;
+    height: 35px;
+    padding: 1px;
+
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{ru.page.default.title.confirmIdentity}">CONFIRM IDENTITY </title>
+    <div th:replace="fragments/header :: header-css"/>
+    <div th:replace="fragments/header :: header"/>
+</head>
+<body style="background-color: #2d4c63">
+<div class="row main-row">
+    <div class="col-md-12">
+        <div class="row row-space-25">
+            <div class="col-md-12"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="container" style="background-color: whitesmoke">
+                    <div class="row">
+                        <div class="col-3">
+                            <img th:src="@{/images/105-User-128.png}" style="width: 200px; padding-top: 35px; padding-bottom: 10px"/>
+                        </div>
+                        <div class="col-7">
+                            <table class="table table-sm">
+                                <caption style="caption-side: top;color: black; font-size: 40px;" th:text="#{ru.page.default.text.hello} + ', ' + ${user.fullName} + '!'"></caption>
+                                <tr>
+                                    <td class="text-left" th:text="#{page.report.personal.number} + ': '"></td>
+                                    <td class="text-right" th:text="${user.getPersonalNumber()}"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left" th:text="#{page.default.text.fullNameUser} + ': '"></td>
+                                    <td class="text-right" th:text="${user.getFullName()}"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left" th:text="#{page.info.user.organisation} + ': '"></td>
+                                    <td class="text-right" th:text="${user.getOrganisation().getName()}"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left" th:text="#{page.search.subdivision} + ': '"></td>
+                                    <td class="text-right" th:text="${user.getSubdivision().getName()}"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center" style="padding-top: 30px">
+            <div class="col-7">
+                <h2 style="color: whitesmoke;font-size: 27px;" th:text="#{page.confimr.notation}"></h2>
+            </div>
+        </div>
+        <div class="row row-space-10">
+            <div class="col-md-12"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <form action="#" th:action="@{/accept}" method="post">
+                    <input type="hidden" th:value="${user.personalNumber}" name="personalNumber"/>
+                    <button type="submit" class="btn btn-success confirm-accept-button"><p
+                            th:text="#{ru.button.default.text.yes}"/>
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-3">
+                <form action="#" th:action="@{/}" method="get">
+                    <button type="submit" class="btn btn-danger confirm-cancel-button"><p
+                            th:text="#{ru.button.default.text.no}"/>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

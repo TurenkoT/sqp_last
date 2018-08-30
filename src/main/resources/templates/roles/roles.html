@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/adminHeader :: adminRolesHeadFragment" th:with="title=#{page.default.title.roles}">
+</head>
+<script type="text/javascript" th:src="@{/js/rolesPage.js}"></script>
+<body>
+<div class="custom-container">
+    <div class="row main-row">
+        <div class="col-md-2 left-menu-col">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/adminPanelLeftMenu :: adminPanelLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row top-main-row-container">
+                <div class="col-md-12" style="padding-left: 25px;">
+                    <h2 style="padding-top: 35px" th:text="#{page.default.title.roles.list}">Roles title</h2>
+                </div>
+            </div>
+            <div class="row roles-row">
+                <div class="col-md-2" style="padding-left: 25px; border-right: 2px solid #3e3d3d">
+                    <div class="row space-row"></div>
+                    <div th:replace="fragments/rolesLeftMenu :: rolesLeftMenu"/>
+                </div>
+                <div class="col-md-8" style="border-right: 2px solid #3e3d3d">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input class="search-in-roles-table-inputs js-search-by-personal-number" type="text"
+                                   th:placeholder="#{page.roles.search.users}"/>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 10px; height: 600px; overflow-y: scroll">
+                        <div class="col-md-12">
+                            <table class="table table-sm js-roles-table">
+                                <thead>
+                                <th class="text-center" th:text="#{page.roles.table.head.personal.number}"
+                                    width="70px"></th>
+                                <th class="text-center" th:text="#{page.roles.table.head.profession}"
+                                    width="135px"></th>
+                                <th class="text-center" th:text="#{page.roles.table.head.subdivision}"
+                                    width="135px"></th>
+                                <th class="text-center" th:text="#{page.roles.table.head.organisation}"
+                                    width="130px"></th>
+                                <th class="text-center" th:text="#{page.roles.table.head.role}"
+                                    width="60px"></th>
+                                <th class="text-center" th:text="#{page.roles.table.head.choose}" width="70px"></th>
+                                </thead>
+                                <tbody>
+                                <th:block th:each="employee : ${employees}">
+                                    <tr>
+                                        <td class="text-center" th:text="${employee.getPersonalNumber()}">Personal Number</td>
+                                        <td class="text-center" th:text="${employee.getStringOfProfessions()}">prof</td>
+                                        <td class="text-center" th:text="${employee.getSubdivision().getName()}">Subdivision</td>
+                                        <td class="text-center" th:text="${employee.getOrganisation().getName()}">Organisation</td>
+                                        <td class="text-center" th:text="${employee.getRoles()}">Roles</td>
+                                        <td class="text-center">
+                                            <input class="js-choose-user" type="checkbox" th:value="${employee.getId()}"/>
+                                        </td>
+                                    </tr>
+                                </th:block>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="row space-row"></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 style="font-size: 15px;" th:text="#{page.roles.set}"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <select id="js-chosen-role">
+                                <option class="js-chosen-role" th:each="role : ${roles}" th:text="${role.getType()}">
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row space-row"></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-success save-roles-button js-save-roles" th:text="#{admin.panel.button.save}" disabled="disabled">save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

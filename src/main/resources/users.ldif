@@ -1,0 +1,30 @@
+#Roles
+
+dn: cn=USER,ou=roles, dc=springframework, dc=org
+objectclass: top
+objectclass: groupOfNames
+cn: USER
+member: uid=admin1,ou=people,dc=springframework,dc=org
+member: uid=admin2,ou=people,dc=springframework,dc=org
+member: uid=user1,ou=people,dc=springframework,dc=org
+
+
+dn: cn=ADMIN,ou=roles, dc=springframework, dc=org
+objectclass: top
+objectclass: groupOfNames
+cn: ADMIN
+member: uid=admin1,ou=people,dc=springframework,dc=org
+member: uid=admin2,ou=people,dc=springframework,dc=org
+
+
+#Users
+
+
+dn: uid=admin1,ou=people, dc=springframework, dc=org
+objectclass: top
+objectclass: person
+objectclass: organisationalPerson
+objectclass: inetOrgPerson
+cn: Admin1
+uid: admin1
+userPassword: admin1Pass

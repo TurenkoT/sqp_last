@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/adminHeader :: adminHeadFragment" th:with="title=#{page.default.title.reports}">
+</head>
+<script type="text/javascript" th:src="@{/js/getReportParameters.js}"></script>
+<script type="text/javascript" th:src="@{/js/reportfiledownload.js}"></script>
+<body>
+<div class="custom-container">
+    <div class="row main-row">
+        <div class="col-md-2 left-menu-col">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/reportLeftMenu :: reportLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row top-main-row-container">
+            </div>
+            <div class="row middle-main-row-container">
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+                    <h2 th:text="#{page.report.title}">Report title</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-5">
+                    <br/>
+                    <h4 class="text-left" th:text="#{reports.form.organisation.label}"/>
+                </div>
+                <div class="col-5">
+                    <br/>
+                    <h4 class="text-left" th:text="#{reports.form.subdivision.label}"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="com-md-5 buttons-row-business-unit-button">
+                    <button class="btn btn-all-business-unit js-all-business-unit" type="button"
+                            th:text="#{page.button.allBussinesUnit}"/>
+                </div>
+                <!--<div class="col-md-5 buttons-row-choose-all-button">-->
+                <!--<button class="btn btn-choose-all js-choose-all" type="button" th:text="#{page.button.chooseAll}"/>-->
+                <!--</div>-->
+            </div>
+            <div class="row br-row">
+                <div class="col-md-12"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <div class="well" style="height: 300px;overflow: auto;">
+                        <ul class="list-group checked-list-box">
+                            <th:block th:each="organisation : ${organisations}">
+                                <li class="list-group-item">
+                                    <input type="checkbox" class="js-organisation-checkbox"
+                                           th:attr="data-organisation-id=${organisation.id}"/>
+                                    <label th:text="${organisation.name}"/>
+                                </li>
+                            </th:block>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="well" style="height: 300px;overflow: auto;">
+                        <ul class="list-group checked-list-box">
+                            <th:block th:each="entry : ${subdivisionsMap}">
+                                <div th:attr="data-organisation-id=${entry.key.key}" class="js-subdivisions-box">
+                                    <li class="list-group-item organisation-line-color" th:text="${entry.key.value}"/>
+                                    <th:block th:each="subdivision : ${entry.value}">
+                                        <li class="list-group-item">
+                                            <input type="checkbox" disabled="true" class="js-subdivision-checkbox"
+                                                   th:value="${subdivision.id}"/>
+                                            <label th:text="${subdivision.name}" class="checkbox-label-disabled"/>
+                                        </li>
+                                    </th:block>
+                                </div>
+                            </th:block>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row date-main-row-container">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <label for="date-from" th:text="#{page.text.from}"> date from</label>
+                    <input id="date-from" class="js-from-date" type="datetime-local"
+                           disabled="disabled"/>
+                </div>
+                <div class="col-md-3">
+                    <label for="date-until" th:text="#{page.text.until}"> date until</label>
+                    <input id="date-until" class="js-to-date" type="datetime-local"
+                           disabled="disabled"/>
+                </div>
+            </div>
+            <div class="row switchers-main-row-container">
+                <div class="col-md-1"></div>
+                <div class="col-md-1">
+                    <button type="button" class="btn date-buttons js-date-day" th:text="#{page.button.day}"
+                            disabled="disabled">Day
+                    </button>
+                </div>
+                <div class="col-md-1">
+                    <button type="button" class="btn date-buttons js-date-month" th:text="#{page.button.month}"
+                            disabled="disabled">Month
+                    </button>
+                </div>
+                <div class="col-md-1">
+                    <button type="button" class="btn date-buttons js-date-year" th:text="#{page.button.year}"
+                            disabled="disabled">Year
+                    </button>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                    <h4 class="text-left" th:text="#{reports.form.report.type}"/>
+                    <label for="month-from" th:text="#{page.text.from}"> Month from</label>
+                    <select id='month-from' class="js-month-from-select" style="width: 150px">
+                        <option selected="selected" value='0' th:text="#{page.text.month.name.janaury}">Janaury</option>
+                        <option value='1' th:text="#{page.text.month.name.february}">February</option>
+                        <option value='2' th:text="#{page.text.month.name.march}">March</option>
+                        <option value='3' th:text="#{page.text.month.name.april}">April</option>
+                        <option value='4' th:text="#{page.text.month.name.may}">May</option>
+                        <option value='5' th:text="#{page.text.month.name.june}">June</option>
+                        <option value='6' th:text="#{page.text.month.name.july}">July</option>
+                        <option value='7' th:text="#{page.text.month.name.august}">August</option>
+                        <option value='8' th:text="#{page.text.month.name.september}">September</option>
+                        <option value='9' th:text="#{page.text.month.name.october}">October</option>
+                        <option value='10' th:text="#{page.text.month.name.november}">November</option>
+                        <option value='11' th:text="#{page.text.month.name.december}">December</option>
+                    </select>
+                    <label for="month-until" th:text="#{page.text.until}"> Month until</label>
+                    <select id='month-until' class="js-month-until-select" style="width: 150px">
+                        <option selected="selected" value='0' th:text="#{page.text.month.name.janaury}">Janaury</option>
+                        <option value='1' th:text="#{page.text.month.name.february}">February</option>
+                        <option value='2' th:text="#{page.text.month.name.march}">March</option>
+                        <option value='3' th:text="#{page.text.month.name.april}">April</option>
+                        <option value='4' th:text="#{page.text.month.name.may}">May</option>
+                        <option value='5' th:text="#{page.text.month.name.june}">June</option>
+                        <option value='6' th:text="#{page.text.month.name.july}">July</option>
+                        <option value='7' th:text="#{page.text.month.name.august}">August</option>
+                        <option value='8' th:text="#{page.text.month.name.september}">September</option>
+                        <option value='9' th:text="#{page.text.month.name.october}">October</option>
+                        <option value='10' th:text="#{page.text.month.name.november}">November</option>
+                        <option value='11' th:text="#{page.text.month.name.december}">December</option>
+                    </select>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row space-main-row-container">
+            </div>
+            <div class="row low-main-row-container">
+                <div class="col-md-1"></div>
+                <form class="col-md-3" action="#" th:action="@{/report/download}" method="post">
+                    <button type="button" class="btn btn-success report-button-unload js-get-report"
+                            th:text="#{page.button.unload}" disabled="disabled">
+                        Unload report
+                    </button>
+                </form>
+                <div class="col-md-1"></div>
+                <form class="col-md-2" action="#" th:action="@{/report/download/full_be}" method="post">
+                    <button type="button" class="btn btn-success report-button-unload js-get-full-be-report"
+                            th:text="#{page.button.full.be}" disabled="disabled">
+                        Unload report
+                    </button>
+                </form>
+                <form class="col-md-2" action="#" th:action="@{/report/download/subdvision}" method="post">
+                    <button type="button" class="btn btn-success report-button-unload js-get-subdivision-report"
+                            th:text="#{page.button.subdiv.report}" disabled="disabled">
+                        Unload report
+                    </button>
+                </form>
+                <form class="col-md-2" action="#" th:action="@{/report/download/profession}" method="post">
+                    <button type="button" class="btn btn-success report-button-unload js-get-profession-report"
+                            th:text="#{page.button.profession.report}" disabled="disabled">
+                        Unload report
+                    </button>
+                </form>
+            </div>
+            <div class="row">
+                <div class="col-md-6"></div>
+                <form class="col-md-2" action="#" th:action="@{/report/download/employee}" method="post">
+                    <button type="button" class="btn btn-success report-button-unload js-get-employee-report"
+                            th:text="#{page.button.employee.report}" disabled="disabled">
+                        Unload report
+                    </button>
+                </form>
+                <form class="col-md-2" action="#" th:action="@{/report/download/subject}" method="post">
+                    <button type="button" class="btn btn-success report-button-unload js-get-subject-report"
+                            th:text="#{page.button.subject.report}" disabled="disabled">
+                        Unload report
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

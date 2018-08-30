@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/adminHeader :: surveysHeadFragment" th:with="title=#{admin.panel.navbar.surveys}">
+</head>
+<body>
+<div class="custom-container">
+    <div class="row main-row">
+        <div class="col-md-2 left-menu-col">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/adminPanelLeftMenu :: adminPanelLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row top-main-row-container">
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+                    <h3 class="admin-panel-table-caption"
+                        th:text="#{admin.panel.surveys.launches.caption(${surveyName})}"/>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 15px">
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+                    <div class="admin-panel-content-table-wrapper">
+                        <table class="table table-sm">
+                            <thead>
+                            <tr>
+                                <th th:text="#{profile.surveys.column.launch.date}" width="170px"/>
+                                <th th:text="#{admin.panel.surveys.launches.column.profession}"/>
+                                <th th:text="#{admin.panel.surveys.launches.column.subdivision}"/>
+                                <th class="text-center" width="100px"/>
+                            </tr>
+                            </thead>
+                            <th:block th:each="launch : ${launches}">
+                                <tr>
+                                    <td th:text="${#dates.format(launch.createdDate, 'yyyy-MM-dd HH:mm')}"/>
+                                    <td th:text="${#strings.listJoin(launch.professionNames, ', ')}"/>
+                                    <td th:text="${#strings.listJoin(launch.subdivisionNames, ', ')}"/>
+                                    <td class="text-center">
+                                        <a th:href="@{/adminPanel/surveys/launches/{launchId}/downloadResults(launchId=${launch.id})}"
+                                           th:text="#{admin.panel.surveys.button.download.answers}"
+                                           class="btn btn-success btn-sm"/>
+                                    </td>
+                                </tr>
+                            </th:block>
+                        </table>
+                    </div>
+                    <div class="mt-3">
+                        <a th:href="@{/adminPanel/surveys}"
+                           th:text="#{admin.panel.surveys.button.back}" class="btn btn-danger btn-lg ml-2"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

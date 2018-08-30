@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/adminHeader :: adminSettingsHeadFragment" th:with="title=#{page.default.title.settings}">
+</head>
+<script type="text/javascript" th:src="@{/js/editTimeSetting.js}"></script>
+<body>
+<div class="custom-container">
+    <div class="row main-row">
+        <div class="col-md-2 left-menu-col">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/adminPanelLeftMenu :: adminPanelLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row top-main-row-container">
+                <div class="col-md-12" style="padding-left: 25px;">
+                    <h2 style="padding-top: 35px" th:text="#{page.default.title.settings}">Settings</h2>
+                </div>
+            </div>
+            <div class="row space-row-5">
+                <div class="col-md-12"></div>
+            </div>
+            <div class="row row-height-5">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <h5 th:text="#{page.time.set.name}"></h5>
+                    <input type="hidden" class="js-time-setting-input-id" th:value="${timeSetting.getId()}"/>
+                </div>
+                <div class="col-md-3 input-group input-sm auth-inputs">
+                    <input type="text" class="complexity-edit-inputs js-time-setting-input-name"
+                           th:value="${timeSetting.getName()}"/>
+                </div>
+            </div>
+            <div class="row row-height-5">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <h5 th:text="#{page.time.set.date}"></h5>
+                </div>
+                <div class="col-md-3 input-group input-sm auth-inputs">
+                    <input type="datetime-local" class="complexity-edit-inputs js-time-setting-input-date"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <button type="button" class="btn section-buttons js-time-settings-month" th:text="#{page.time.settings.button.month}"></button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn section-buttons js-time-settings-half-year" th:text="#{page.time.settings.button.half.year}"></button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn section-buttons js-time-settings-year" th:text="#{page.time.settings.button.year}"></button>
+                </div>
+            </div>
+            <div class="row space-row-5">
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <form action="#"
+                          th:action="@{'/settings/time/settings/change/{timeSettingId}/save'(timeSettingId=${timeSetting.getId()})}"
+                          method="post">
+                        <button type="button" class="btn btn-success complexity-edit-buttons js-time-setting-edit"><p
+                                th:text="#{admin.panel.button.save}"></p></button>
+                    </form>
+                </div>
+                <div class="col-md-3">
+                    <form action="#" th:action="@{/adminPanel/settings}" method="get">
+                        <button type="submit" class="btn btn-danger complexity-edit-buttons"><p
+                                th:text="#{ru.button.default.text.cancel}"></p>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

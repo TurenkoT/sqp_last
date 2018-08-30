@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/adminHeader :: adminUploadStatusHeadFragment"
+      th:with="title=#{page.default.title.uploadStatus}">
+</head>
+<body>
+<div class="custom-container">
+    <div class="row main-row">
+        <div class="col-md-2 left-menu-col">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/adminPanelLeftMenu :: adminPanelLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row space-row"></div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+                    <div th:if="${message}">
+                        <h2 th:text="${message}"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+                    <th:block th:each="message : ${log}">
+                        <p th:text="${message}">message</p>
+                    </th:block>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+                    <div th:if="${totalTime}">
+                        <h2 th:text="#{ru.page.default.text.totalTime} + ': ' + ${totalTime}">total time</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row spase-row-5"></div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-11">
+                    <form action="#" th:action="@{/adminPanel}" method="get">
+                        <button type="submit" class="btn btn-primary upload-button-ok">
+                            <p th:text="#{ru.button.default.text.okbutton}">ok</p>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

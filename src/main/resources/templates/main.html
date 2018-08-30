@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{ru.page.default.title.mainPage}">SQP </title>
+    <div th:replace="fragments/header :: header-css"/>
+    <div th:replace="fragments/header :: header"/>
+</head><body style="background-color: #2d4c63">
+<script>
+    function addTextToInput(anElement) {
+        var text = document.getElementById('personalNumber').value;
+        if (text != null)
+            text += "";
+        text += anElement.innerText;
+        document.getElementById('personalNumber').value = text;
+    }
+
+    function removeElement() {
+        var text = document.getElementById('personalNumber').value;
+        if (text != null)
+            text = text.substr(0, text.length - 1);
+        document.getElementById('personalNumber').value = text;
+    }
+
+    function clearInput() {
+        var text = document.getElementById('personalNumber').value;
+        if (text != null)
+            text = "";
+        document.getElementById('personalNumber').value = text;
+    }
+</script>
+<div class="row main-row">
+    <div class="col-md-6">
+        <div class="row row-space-15">
+            <div class="col-md-12"></div>
+        </div>
+        <div class="row row-space-10">
+            <div class="col-md-2">
+            </div>
+        </div>
+        <div class="row row-space-30">
+            <div class="col-md-4"></div>
+            <div class="col-md-1">
+                <span style="margin-left: 40px"><i class="fa fa-graduation-cap main-page-cap"></i></span>
+            </div>
+        </div>
+        <form action="#" th:action="@{/findUser}" method="post">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <input type="text" id="personalNumber" class="main-page-personal-number-input"
+                           name="personalNumber" th:placeholder="#{page.main.personal.number}"/>
+                </div>
+            </div>
+            <div class="row row-space-5">
+                <div class="col-md-12">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-success main-page-search-button"><p
+                            th:text="#{ru.button.default.text.searchbutton}"/>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <div class="row row-space-15">
+            <div class="col-md-12"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2 col-space">
+                <button onclick="addTextToInput(this)" type="button"
+                        class="btn btn-primary main-page-number-panel">1
+                </button>
+            </div>
+            <div class="col-md-2 col-space">
+                <button onclick="addTextToInput(this)" type="button"
+                        class="btn btn-primary main-page-number-panel">2
+                </button>
+            </div>
+            <div class="col-md-2 col-space">
+                <button onclick="addTextToInput(this)" type="button"
+                        class="btn btn-primary main-page-number-panel">3
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2 col-space">
+                <button onclick="addTextToInput(this)" type="button"
+                        class="btn btn-primary main-page-number-panel">4
+                </button>
+            </div>
+            <div class="col-md-2 col-space">
+                <button onclick="addTextToInput(this)" type="button"
+                        class="btn btn-primary main-page-number-panel">5
+                </button>
+            </div>
+            <div class="col-md-2 col-space">
+                <button onclick="addTextToInput(this)" type="button"
+                        class="btn btn-primary main-page-number-panel">6
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2 col-space">
+                <button onclick="addTextToInput(this)" type="button"
+                        class="btn btn-primary main-page-number-panel">7
+                </button>
+            </div>
+            <div class="col-md-2 col-space">
+                <button onclick="addTextToInput(this)" type="button"
+                        class="btn btn-primary main-page-number-panel">8
+                </button>
+            </div>
+            <div class="col-md-2 col-space">
+                <button onclick="addTextToInput(this)" type="button"
+                        class="btn btn-primary main-page-number-panel">9
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2 col-space">
+                <button onclick="removeElement(this)" type="button"
+                        class="btn btn-warning main-page-remove-button"><p
+                        th:text="#{ru.button.default.text.removebutton}"/>
+                </button>
+            </div>
+            <div class="col-md-2 col-space">
+                <button onclick="addTextToInput(this)" type="button"
+                        class="btn btn-primary main-page-number-panel">0
+                </button>
+            </div>
+            <div class="col-md-2 col-space">
+                <button onclick="clearInput(this)" type="button"
+                        class="btn btn-danger main-page-clear-button"><p
+                        th:text="#{ru.button.default.text.clearbutton}"/>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+<div th:fragment="rolesLeftMenu">
+    <div class="row" style="padding-bottom: 10px;">
+        <form class="col-md-12" action="#" th:action="@{/adminPanel/roles}" method="get">
+            <button type="submit" class="btn section-buttons"
+                    th:text="#{roles.button.all.users}">All workers
+            </button>
+        </form>
+    </div>
+    <div class="row" style="padding-bottom: 10px;">
+        <form class="col-md-12" action="#" th:action="@{/adminPanel/groupsOfUsers}" method="get">
+            <button type="submit" class="btn section-buttons"
+                    th:text="#{roles.button.groups.users}" disabled="disabled">Groups
+            </button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

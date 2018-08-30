@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{ru.page.default.title.timeisup}">TIME IS UP </title>
+    <div th:replace="fragments/header :: header-css"/>
+    <div th:replace="fragments/header :: header"/>
+</head>
+<body style="background-color: #2d4c63">
+<div class="row main-row">
+    <div class="col-md-12">
+        <div class="row row-space-30">
+            <div class="col-md-12"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <h2 style="color: whitesmoke" th:text="#{ru.page.text.timeisup}">TIME IS UP</h2>
+            </div>
+        </div>
+        <div class="row row-space-5">
+            <div class="col-12">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-3">
+                <form action="#" th:action="@{/}" method="get">
+                    <button type="submit" class="btn btn-danger timeisupbutton"><p
+                            th:text="#{ru.button.default.text.endbutton}"/>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

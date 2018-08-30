@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/adminHeader :: adminSettingsHeadFragment" th:with="title=#{page.default.title.settings}">
+</head>
+<script type="text/javascript" th:src="@{/js/editComplexity.js}"></script>
+<body>
+<div class="custom-container">
+    <div class="row main-row">
+        <div class="col-md-2 left-menu-col">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/adminPanelLeftMenu :: adminPanelLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row top-main-row-container">
+                <div class="col-md-12" style="padding-left: 25px;">
+                    <h2 style="padding-top: 35px" th:text="#{page.default.title.settings}">Settings</h2>
+                </div>
+            </div>
+            <div class="row space-row-5">
+                <div class="col-md-12"></div>
+            </div>
+            <div class="row row-height-5">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <h5 th:text="#{page.complexity.name}"></h5>
+                    <input type="hidden" class="js-complexity-input-id" th:value="${complexity.getId()}"/>
+                </div>
+                <div class="col-md-3 input-group input-sm auth-inputs">
+                    <input type="text" class="complexity-edit-inputs js-complexity-input-name"
+                           th:value="${complexity.getName()}"/>
+                </div>
+            </div>
+            <div class="row row-height-5">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <h5 th:text="#{page.complexity.points}"></h5>
+                </div>
+                <div class="col-md-3 input-group input-sm auth-inputs">
+                    <input type="text" class="complexity-edit-inputs js-complexity-input-points"
+                           th:value="${complexity.getPoints()}"/>
+                </div>
+            </div>
+            <div class="row row-height-5">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <h5 th:text="#{page.complexity.penalty}"></h5>
+                </div>
+                <div class="col-md-3 input-group input-sm auth-inputs">
+                    <input type="text" class="complexity-edit-inputs js-complexity-input-penalty"
+                           th:value="${complexity.getPenalty()}"/>
+                </div>
+            </div>
+            <div class="row space-row-5">
+
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <form action="#"
+                          th:action="@{'/settings/complexity/change/{complexityId}/save'(complexityId=${complexity.getId()})}"
+                          method="post">
+                        <button type="button" class="btn btn-success complexity-edit-buttons js-complexity-edit"><p
+                                th:text="#{admin.panel.button.save}"></p></button>
+                    </form>
+                </div>
+                <div class="col-md-3">
+                    <form action="#" th:action="@{/adminPanel/settings}" method="get">
+                        <button type="submit" class="btn btn-danger complexity-edit-buttons"><p
+                                th:text="#{ru.button.default.text.cancel}"></p>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

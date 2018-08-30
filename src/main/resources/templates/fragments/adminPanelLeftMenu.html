@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+<div style="height: 60%;" th:fragment="adminPanelLeftMenu">
+    <div class="row middle-row-container">
+        <div class="row left-menu-top-button-rows">
+                <form class="col-md-12" action="#" th:action="@{/adminPanel}" method="get">
+                <button type="submit" class="btn btn-primary left-menu-buttons">
+                   <span><i style="font-size: 35px;" class="fa fa-home"></i></span>
+                </button>
+                </form>
+        </div>
+        <div class="row left-menu-middle-buttons-rows">
+            <form class="col-md-12" action="#" th:action="@{/adminPanel/users}" method="get">
+                <button type="submit" class="btn btn-primary left-menu-buttons"
+                        th:text="#{ru.page.navbar.adminpage.users}">Employees
+                </button>
+            </form>
+        </div>
+        <div class="row left-menu-middle-buttons-rows">
+            <form class="col-md-12" action="#" th:action="@{/adminPanel/questions}" method="get">
+                <button type="submit" class="btn btn-primary left-menu-buttons"
+                        th:text="#{ru.page.default.title.questions}">Questions
+                </button>
+            </form>
+        </div>
+        <div class="row left-menu-middle-buttons-rows">
+            <form class="col-md-12" action="#" th:action="@{/adminPanel/surveys}" method="get">
+                <button type="submit" class="btn btn-primary left-menu-buttons"
+                        th:text="#{admin.panel.navbar.surveys}">Surveys
+                </button>
+            </form>
+        </div>
+        <div class="row left-menu-middle-buttons-rows">
+                <form class="col-md-12" action="#" th:action="@{/adminPanel/statistic}" method="get">
+                <button type="submit" class="btn btn-primary left-menu-buttons"
+                        th:text="#{ru.page.navbar.adminpage.statistic}">Statistic
+                </button>
+                </form>
+        </div>
+        <div class="row left-menu-middle-buttons-rows">
+            <form class="col-md-12" action="#" th:action="@{/adminPanel/roles}" method="get">
+                <button type="submit" class="btn btn-primary left-menu-buttons">
+                    <span th:text="#{page.default.title.roles}"/>
+                </button>
+            </form>
+        </div>
+        <div class="row left-menu-middle-buttons-rows">
+            <form class="col-md-12" action="#" th:action="@{/adminPanel/settings}" method="get">
+                <button type="submit" class="btn btn-primary left-menu-buttons">
+                    <span th:text="#{page.default.title.settings}"/>
+                </button>
+            </form>
+        </div>
+        <div class="row left-menu-low-button-rows">
+                <form class="col-md-12" action="#" th:action="@{/logout}" method="get">
+                <button type="submit" class="btn btn-primary left-menu-buttons"
+                        th:text="#{ru.button.default.text.quit}">Quit
+                </button>
+                </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

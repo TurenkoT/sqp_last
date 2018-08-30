@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="fragments/adminHeader :: adminRelationHeadFragment" th:with="title=#{page.default.title.relation}">
+</head>
+<script type="text/javascript" th:src="@{/js/relationProfToSub.js}"></script>
+<script type="text/javascript" th:src="@{/js/deleteRelation.js}"></script>
+<script type="text/javascript" th:src="@{/js/searchProf.js}"></script>
+<body>
+<div class="custom-container">
+    <div class="row main-row">
+        <div class="col-md-2 left-menu-col">
+            <div class="row top-row-container">
+            </div>
+            <div th:replace="fragments/adminPanelLeftMenu :: adminPanelLeftMenu"/>
+        </div>
+        <div class="col-md-10 main-col">
+            <div th:replace="fragments/adminHeader :: auth-user"/>
+            <div class="row top-main-row-container">
+                <div class="col-md-12" style="padding-left: 25px;">
+                    <h2 style="padding-top: 35px" th:text="#{default.text.chooseRel}">Relation title</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="inner-addon-search right-addon-search">
+                        <i class=" search-icon fa fa-search"></i>
+                        <input class="searchRelInput" type="text" id="js-searchProf"
+                               placeholder="подразделение/профессия"/>
+                        <button class="js-checked-all-prof btn btn-info button-choose-all"
+                                th:text="#{ru.page.button.chooseAll}"></button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="inner-addon-search right-addon-search">
+                        <i class=" search-icon fa fa-search"></i>
+                        <input class="searchRelInput" type="text" id="js-searchrel" placeholder="профессия/тематика"/>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="inner-addon-search right-addon-search">
+                        <i class=" search-icon fa fa-search"></i>
+                        <input class="searchRelInput" type="text" id="js-search-subj" placeholder="тематика"/>
+                        <button  class="js-checked-all-subj btn btn-info button-choose-all"
+                                th:text="#{ru.page.button.chooseAll}"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" style="padding-top: 10px; height: 600px; overflow-y: scroll">
+                    <table class="table table-sm js-prof-table" style="padding-left: 25px; font-size: 15px">
+                        <thead style="background-color: silver">
+                        <tr>
+                            <th class="text-center" th:text="#{ru.page.default.text.subdivision}" width="130px">
+                                subdivision
+                            </th>
+                            <th class="text-center" th:text="#{ru.default.text.prof}" width="100px">
+                                name
+                            </th>
+                            <th class="text-center" th:text="#{ru.default.text.choose}" width="100px">
+                                choose
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <th:block th:each="prof : ${professions}">
+                            <th:block th:each="subdivision : ${prof.getProfessionToSubdivisions()}">
+                                <tr>
+                                    <td class="text-left">
+                                        <p th:text="${subdivision.getSubdivision().getName()}">
+                                            subdivision</p>
+                                    </td>
+                                    <td class="text-left" th:text="${prof.name}">name
+                                    </td>
+                                    <td class="text-center">
+                                        <input type="checkbox" class="js-check-prof"
+                                               th:value="${prof.id} + ':' + ${subdivision.subdivision.id}"/></td>
+                                </tr>
+                            </th:block>
+                        </th:block>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-4" style="padding-top: 10px; height: 600px; overflow-y: scroll">
+                    <table class="table table-sm js-relation-table" style="padding-left: 25px; font-size: 15px">
+                        <thead style="background-color: silver">
+                        <tr>
+                            <th class="text-center" th:text="#{ru.page.default.text.subdivision}" width="100px">
+                                prof
+                            </th>
+                            <th class="text-center" th:text="#{ru.default.text.prof}" width="100px">
+                                prof
+                            </th>
+                            <th class="text-center" th:text="#{ru.default.text.subj}" width="100px">
+                                name
+                            </th>
+                            <th class="text-center" th:text="#{ru.page.default.text.deletequestion}" width="65px">
+                                delete
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <th:block th:each="prof : ${professions}">
+                            <th:block th:each="subdivision : ${prof.getProfessionToSubdivisions()}">
+                                <th:block th:each="subj : ${subdivision.getSubjects()}">
+                                    <tr>
+                                        <td class="text-left">
+                                            <p th:text="${subdivision.getSubdivision().getName()}">
+                                                subdivision</p>
+                                        </td>
+                                        <td class="text-left" th:text="${prof.name}">prof
+                                        </td>
+                                        <td class="text-left" th:text="${subj.getName()}">
+                                            subj
+                                        </td>
+                                        <td class="text-center">
+                                            <button type="button" class="fa fa-remove deletecross js-delete-relation"
+                                                    th:value="${prof.id} + ':' + ${subj.id}"></button>
+                                        </td>
+                                    </tr>
+                                </th:block>
+                            </th:block>
+                        </th:block>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-4" style="padding-top: 10px; height: 600px; overflow-y: scroll">
+                    <table class="table table-sm js-subj-table"  style="padding-left: 25px; font-size: 15px">
+                        <thead style="background-color: silver">
+                        <tr>
+                            <th class="text-center" th:text="#{ru.default.text.subj}" width="120px">
+                                name
+                            </th>
+                            <th class="text-center" th:text="#{ru.default.text.choose}" width="100px">
+                                choose
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <th:block th:each="subj : ${subjects}">
+                            <tr>
+                                <td class="text-left" th:text="${subj.name}">name
+                                </td>
+                                <td class="text-center">
+                                    <input type="checkbox" class="js-check-subj" th:value="${subj.id}"/></td>
+                            </tr>
+                        </th:block>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 25px">
+                <div class="col-md-4"></div>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-success js-save-changes save-relation-button" disabled="disabled"><p
+                            th:text="#{ru.page.button.save}">save</p></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

@@ -1,0 +1,329 @@
+footer {
+    margin-top: 60px;
+}
+
+p {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.severstallogo2 {
+    width: 100%;
+}
+
+.circle {
+    display: inline-block;
+    color: #000;
+    text-align: center;
+    border-radius: 50%;
+    padding: 0.5em 0;
+    width: 3em;
+    height: 3em;
+}
+
+.dysplaysquad {
+    align-items: center;
+    background: #e9eeff;
+    width: 1000px;
+}
+
+.numbers {
+    position: relative;
+    top: 0.3em;
+    padding: 0em 0.65em;
+    font-size: 42px;
+    color: #e9eeff;
+}
+
+.personalnumberinput {
+    width: 420px;
+    height: 80px;
+    font-size: 32px;
+
+}
+
+.numberpaneltdth {
+    padding: 5px;
+}
+
+.page {
+    width: 320px;
+    padding: 30px;
+    margin: 150px auto;
+    background: lavender;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border: 1px solid #000;
+}
+
+.clearButton {
+    width: 400px;
+    height: 80px;
+    font-size: 32px;
+}
+
+.inputpanel {
+    width: 500px;
+    margin-top: 30px;
+    margin-left: 1px;
+}
+
+.buttonspanel {
+    width: 500px;
+    margin-top: 50px;
+    margin-left: 1050px;
+}
+
+.logopositionuiz {
+    margin-top: -920px;
+    margin-left: 1100px;
+}
+
+.findUserPanel {
+    width: 500px;
+    margin-top: 30px;
+    margin-left: -200px;
+}
+
+.findUserInput {
+    width: 900px;
+    height: 100px;
+    font-size: 32px;
+}
+
+.finduserbutton {
+    align-self: center;
+    margin-top: 10px;
+    margin-left: 209px;
+}
+
+.firstlinetable {
+    margin-left: -567px;
+}
+
+.secondlinetable {
+    margin-left: -492px;
+}
+
+.thirdlinetable {
+    margin-left: -350px;
+}
+
+.finduserservicetable {
+    margin-left: -200px;
+}
+
+.finduserspacebutton {
+    width: 500px;
+    height: 70px;
+    font-size: 35px;
+}
+
+.finduserservicebutton {
+    width: 230px;
+    height: 70px;
+    font-size: 35px;
+}
+
+.userprofileheadernavbar {
+    background-color: black;
+    color: #e9eeff;
+    width: 200px;
+    height: 56px;
+    font-size: 25px;
+}
+
+.profileleftmenu {
+    width: 340px;
+    margin-left: -385px;
+    background-color: dimgray;
+    border-color: dimgray;
+    position: absolute;
+}
+
+.profileleftmenubuttonstest {
+		margin-left: 170px;
+    position: absolute;
+    width: 350px;
+    height: 70px;
+    font-size: 26px;
+    color: WHITE;
+    background-image: none;
+    background-color: #336699;
+    border: 5px solid transparent;
+    border-color: #336699;
+    border-radius: 15px;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.statisticdiagramover75 {
+    margin: 50px auto;
+    margin-top: 25px;
+    margin-left: 771px;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    border: 60px solid #26a548;
+    border-right-color: #b8fcc9;
+    border-radius: 50%;
+    font: 60px/80px Times, serif;
+    position: absolute;
+    box-shadow: 0 0 0 0.25rem rgba(0, 153, 0, 0.28), inset 0 0 0 0.25rem rgba(0, 153, 0, 0.28);
+}
+
+.statisticdiagram5075 {
+    margin: 50px auto;
+    margin-top: 25px;
+    margin-left: 771px;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    border: 60px solid #edc21a;
+    border-right-color: #ffe88e;
+    border-bottom-color: #ffe88e;
+    border-radius: 50%;
+    font: 60px/80px Times, serif;
+    position: absolute;
+    box-shadow: 0 0 0 0.25rem rgba(236, 151, 31, 0.28), inset 0 0 0 0.25rem rgba(236, 151, 31, 0.28);
+}
+
+.statisticdiagramlower50 {
+    margin: 50px auto;
+    margin-top: 25px;
+    margin-left: 771px;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    border: 60px solid #a31515;
+    border-right-color: #f99090;
+    border-top-color: #f99090;
+    border-bottom-color: #f99090;
+    border-radius: 50%;
+    font: 60px/80px Times, serif;
+    position: absolute;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.29), inset 0 0 0 0.25rem rgba(220, 53, 69, 0.29);
+}
+
+.chart {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    margin: 0 10px;
+    vertical-align: top;
+    font-size: 56px;
+    padding-top: 19px;
+    padding-left: 42px;
+    border-radius: 50%;
+    border: 10px solid #009900;
+    box-shadow: 0 0 0 0.2rem rgba(0, 153, 0, 0.28);
+    background-color: #b3f5b485;
+
+}
+
+.userprofileinfo {
+    position: absolute;
+    margin-left: 350px;
+    margin-top: 250px;
+}
+
+.userprofilephoto {
+    position: absolute;
+    margin-left: 400px;
+    margin-top: -150px;
+    border: 1px solid #000;
+    width: 380px;
+    height: 350px;
+}
+
+.userprofilenostatistic {
+    position: absolute;
+    margin-top: 150px;
+    font-size: 25px;
+}
+
+
+.admin-panel-btn {
+    width: 300px;
+    height: 60px;
+    font-size: 20px;
+    padding: 1px;
+    background-color: white;
+    border: 3px solid #336699;
+    box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, .25);
+    line-height: 48px;
+    color: #000;
+}
+
+.admin-panel-content-table-container {
+    width: 1200px;
+    height: 650px;
+    overflow: scroll;
+    border: 2px solid #336699;
+    background-color: white;
+}
+
+.admin-panel-content-table-wrapper {
+    display: block;
+    max-height: 600px;
+    width: 100%;
+    overflow-y: auto;
+    background-color: white;
+}
+
+.admin-panel-content-table {
+    font-size: 15px;
+    width: 100%;
+    background-color: white;
+    text-align: justify;
+}
+
+.admin-panel-content-table th {
+    text-align: center;
+    cursor: pointer;
+    background-color: #7898b5;
+    color: white;
+    border: 2px solid #336699;
+}
+
+.admin-panel-table-caption {
+    margin-top: 75px;
+}
+
+.admin-panel-form input[type=text],
+.admin-panel-form textarea {
+     width: 650px;
+}
+
+.profile textarea {
+     width: 650px;
+}
+
+.main .fa-edit {
+    color: #FFB47C;
+}
+
+.main .fa-remove {
+    color: #b11515;
+}
+
+.main a {
+    text-decoration: none;
+}
+
+.main h3 {
+    font-size: 17px;
+}
+
+.checkbox-label-disabled {
+    color: gray;
+}
+
+
+
+
+
